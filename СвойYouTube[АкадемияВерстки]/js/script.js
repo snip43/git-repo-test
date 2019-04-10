@@ -146,7 +146,7 @@ function start() {
         });
 
         sliceTitle();
-        bindModal(document.querySelectorAll('videos__item'));
+        bindModal(document.querySelectorAll('.videos__item'));
 
 
     }).catch(e => {
@@ -154,6 +154,7 @@ function start() {
     });
 
 }
+
 more.addEventListener('click', () => {
     more.remove();
     gapi.load('client', start);
