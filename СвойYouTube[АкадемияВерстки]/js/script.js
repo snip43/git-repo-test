@@ -178,3 +178,28 @@ createVideo();
 function loadVideo(id) {
     player.loadVideoById({ 'videoId': `${id}` });
 }
+
+function start() {
+    gapi.client.init({
+        'apiKey':;
+        'discoveryDocs':;
+    }).then(function() {
+        return gapi.client.youtube.playlistItems.list({
+            "part": "snippet,contentDetails",
+            "maxResults": '6',
+            "playlistId": "PLBCF2DAC6FFB574DE"
+        })
+    }).then(function(responce) {
+        console.log(responce.result);
+    }).catch(e => {
+        console.log(e);
+    })
+
+}
+more.addEventListener('click', () => {
+    more.remove();
+    gapi.start('client', load);
+
+});
+
+//AIzaSyDfO9MO4NTb2rvyZ2-kfI6tBXuCaaiOKSs
