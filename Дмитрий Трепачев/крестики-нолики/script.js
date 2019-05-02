@@ -23,6 +23,7 @@ let player = 1; //значение первого игрока.
 
 
 // start();
+
 // -----------------------------------------------------------------------------------------------
 
 //функция для "крестиков"
@@ -44,7 +45,6 @@ function playerOne() {
                 cell[3].classList.contains('crest') && cell[4].classList.contains('crest') && cell[5].classList.contains('crest') ||
                 cell[6].classList.contains('crest') && cell[7].classList.contains('crest') && cell[8].classList.contains('crest')) {
                 alert('Игра окончена,выйграли "крестики"'); //сообщение о выйгрыше
-                return go(); //возврат в начало программы
             } else { //если выйгрыша нет - передаем ход игроку 2. Тут добавляются оба класса ,и crest и zero, поэтому 1 из них удаляем.
                 this.classList.remove('zero'); //удаление класса второго игрока
                 playerTwo(); //функция для второго игрока
@@ -71,7 +71,6 @@ function playerTwo() {
                 cell[3].classList.contains('zero') && cell[4].classList.contains('zero') && cell[5].classList.contains('zero') ||
                 cell[6].classList.contains('zero') && cell[7].classList.contains('zero') && cell[8].classList.contains('zero')) {
                 alert('Игра окончена,выйграли "нолики"');
-
             } else {
                 this.classList.remove('crest');
                 playerOne();
@@ -81,16 +80,17 @@ function playerTwo() {
     });
 }
 
+
 // стартовая функция
 function go() {
     if (confirm('Играем ?')) { //выводим сообщение о начале игры
-        alert('Начинает 1 игрок с крестиков!'); // сообщение о том что начинает 1 игрок.
+        // alert('Начинает 1 игрок с крестиков!'); // сообщение о том что начинает 1 игрок.
         playerOne();
-        // if (player == 1) {
-        //     playerOne();
-        // } else {
-        //     playerTwo();
-        // }
+        if (player == 1) {
+            playerOne();
+        } else {
+            playerTwo();
+        }
     } else {
         alert('Приходите завтра!');
     }

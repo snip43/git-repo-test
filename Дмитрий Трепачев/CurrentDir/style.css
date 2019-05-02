@@ -1,0 +1,9 @@
+body {
+    padding: 100px;
+}
+
+p {
+    border: 1px solid red;
+    text-align: center;
+    font-size: 1.2em;
+}
