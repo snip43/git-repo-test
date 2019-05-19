@@ -2,14 +2,7 @@ body {
     padding: 100px;
 }
 
-table {
-    border-spacing: 0;
-    width: 200px;
-    height: 100px;
-}
-
 td {
     border: 1px solid red;
-    text-align: center;
-    font-size: 1.5em;
+    padding: 5px;
 }
