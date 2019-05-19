@@ -30,10 +30,27 @@ function start(tableField, output, nameField, priceField, quantityField, buttonF
         createTd(priceField.value, tr);
         createTd(quantityField.value, tr);
         createTd(quantityField.value * priceField.value, tr, 'cost');
+        delProductForTable(table, tr);
 
         tableField.appendChild(tr);
         getSum(tableField, output);
     });
+}
+
+function delProductForTable(table, tr) {
+    const td = document.createElement('td');
+
+    tr.appendChild(td);
+
+    const del = document.createElement('a');
+    del.href = '#';
+    del.innerHTML = 'удалить';
+    td.appendChild(del);
+
+    del.addEventListener('click', function() {
+        table.removeChild(tr);
+    });
+
 }
 
 function createTd(text, parent, className) {
