@@ -21,13 +21,13 @@ body {
     justify-content: center;
     align-items: center;
     width: 80%;
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
 
 textarea {
     margin-bottom: 30px;
     width: 100%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     font-size: 1.3em;
     padding: 10px;
 }
@@ -36,7 +36,7 @@ textarea {
     display: flex;
     flex-direction: column;
     width: 90%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .lineButton {
@@ -48,8 +48,6 @@ textarea {
 }
 
 button {
-    /* width: 50px;
-    height: 50px; */
     border-radius: 5px;
     margin: 1px;
     font-size: 1.1em;
@@ -59,12 +57,10 @@ button {
 
 .middle {
     flex-basis: 70px;
-    /* flex-grow: 1.1; */
 }
 
 .most-middle {
     flex-basis: 100px;
-    /* flex-grow: 1.5; */
 }
 
 .spaceButton {
