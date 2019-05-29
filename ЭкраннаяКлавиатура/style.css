@@ -21,22 +21,20 @@ body {
     justify-content: center;
     align-items: center;
     width: 80%;
-    /* border: 1px solid green; */
 }
 
 textarea {
     margin-bottom: 30px;
     width: 100%;
-    /* border: 1px solid red; */
     font-size: 1.3em;
     padding: 10px;
+    border-radius: 5px;
 }
 
 #wrapperButton {
     display: flex;
     flex-direction: column;
     width: 90%;
-    /* border: 1px solid red; */
 }
 
 .lineButton {
@@ -44,15 +42,17 @@ textarea {
     height: 50px;
     justify-content: space-between;
     align-items: stretch;
-    /* border: 1px solid red; */
+    margin-top: 2px;
 }
 
 button {
-    border-radius: 5px;
-    margin: 1px;
+    border-radius: 10px;
+    margin: 2px;
     font-size: 1.1em;
     font-weight: bold;
     flex-grow: 1;
+    /* border-color: aqua; */
+    /* border: 1px dashed aqua; */
 }
 
 .middle {
