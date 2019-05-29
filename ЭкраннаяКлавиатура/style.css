@@ -29,6 +29,7 @@ textarea {
     font-size: 1.3em;
     padding: 10px;
     border-radius: 5px;
+    outline: none;
 }
 
 #wrapperButton {
@@ -51,6 +52,7 @@ button {
     font-size: 1.1em;
     font-weight: bold;
     flex-grow: 1;
+    outline: none;
     /* border-color: aqua; */
     /* border: 1px dashed aqua; */
 }

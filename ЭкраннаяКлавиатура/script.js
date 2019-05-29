@@ -8,7 +8,8 @@ const classButtons = document.querySelectorAll('.button'),
     buttonTab = document.querySelector('#tab'),
     capsButton = document.querySelector('#capsLock'),
     shiftButtons = document.querySelectorAll('.shift'),
-    enterButton = document.querySelector('#enter');
+    enterButton = document.querySelector('#enter'),
+    selectButton = document.querySelector('#allSelectButton');
 //-------------------------------------------------
 //----------------BUTTONS WITH CLASS BUTTON------------		
 classButtons.forEach(function(elem) {
@@ -42,6 +43,7 @@ buttonTab.addEventListener('click', function() {
 // --------------------CLEAR--------------------------
 buttonClear.addEventListener('click', function() {
     textPlace.innerHTML = '';
+    getSelection().removeAllRanges();
 });
 // ----------------------------------------------
 // ----------------------SPACE------------------------
@@ -116,3 +118,11 @@ function lowerCase() {
 }
 
 // --------------------------------------------------------------------------
+//--------------------------------ALL SELECTION------------------------------
+selectButton.addEventListener('click', function() {
+    let range = document.createRange();
+    range.selectNode(textPlace);
+    getSelection().addRange(range);
+    textPlace.style.back = 'lightblue';
+});
+//--------------------------------------------------------------
