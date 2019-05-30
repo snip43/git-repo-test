@@ -9,8 +9,36 @@ const classButtons = document.querySelectorAll('.button'),
     capsButton = document.querySelector('#capsLock'),
     shiftButtons = document.querySelectorAll('.shift'),
     enterButton = document.querySelector('#enter'),
-    selectButton = document.querySelector('#allSelectButton');
+    selectButton = document.querySelector('#allSelectButton'),
+    changeButton = document.querySelector('#buttonChange');
+
+const enSign = ["\`", 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "_", "+", "q", " w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "\\", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "z", "x", "c", "v", "b", "n", "m", ",", ".", "/"],
+    ruSign = ["ё", 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "-", "=", "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ", "\\", "ф", "ы", "в", "а", "п", "р", "о", "л", "д", "ж", "э", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю", "."];
+
+
 //-------------------------------------------------
+//-----------------------BUTTON CHANGE--------------------------
+changeButton.addEventListener('click', changeEn);
+
+function changeEn() {
+    changeButton.style.color = 'green';
+    classButtons.forEach(function(elem, i) {
+        elem.innerHTML = enSign[i];
+    });
+    changeButton.removeEventListener('click', changeEn);
+    changeButton.addEventListener('click', changeRu);
+}
+
+function changeRu() {
+    changeButton.style.color = '';
+    classButtons.forEach(function(elem, i) {
+        elem.innerHTML = ruSign[i];
+    });
+    changeButton.removeEventListener('click', changeRu);
+    changeButton.addEventListener('click', changeEn);
+}
+//--------------------------------------------------------------
+
 //----------------BUTTONS WITH CLASS BUTTON------------		
 classButtons.forEach(function(elem) {
     elem.addEventListener('click', function() {
@@ -57,7 +85,6 @@ buttonSpace.addEventListener('click', function() {
 shiftButtons.forEach(function(elem) {
     elem.addEventListener('click', getShiftUp);
 });
-
 
 function getShiftUp() {
     shiftButtons.forEach(function(item) {
