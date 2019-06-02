@@ -21,15 +21,6 @@ const radioBtnEightTen = document.querySelector('#checkEightTenth'),
 calcZP.addEventListener('click', getFinishZp);
 
 function getFinishZp() {
-    // console.log('ИМСПримеркой: ' + getPrice(basePrice1, numberImBP));
-    // console.log('ИМБезПримерки: ' + getPrice(basePrice2, numberImP));
-    // console.log('Почта: ' + getPrice(basePrice3, B2B));
-    // console.log('Заказы: ' + getPrice(basePrice4, orders));
-    // console.log('oklad: ' + parseInt(getPrice(oklad)));
-    // console.log('премия: ' + parseInt(getPrice(premiya)));
-    // console.log('сумма: ' + getSum());
-    // console.log('налог 13%: ' + getTax());
-
     inputResult.value = getFullSum() - getTax();
 }
 
