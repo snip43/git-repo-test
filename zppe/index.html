@@ -6,11 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>zppe - Зарплата курьера ПониЭкспресс</title>
 </head>
 
 <body>
+    <form action="#" autocomplete="off" target="_self">
+        <fieldset>
+            <legend>Ввод данных</legend>
 
+            <p>
+                <label> Выберите коэффициент:</label>
+                <label><input type="radio" name="coef" id="checkEightTenth">0.8</label>
+                <label><input type="radio" name="coef" id="checkOne" checked>1</label>
+                <label><input type="radio" name="coef" id="checkOneSecond">1.2</label>
+            </p>
+
+            <p>
+                <label> Оклад / премия 50%: </label>
+                <input type="text" id="oklad" value="12334" disabled>
+                <input type="text" id="premiya" value="6176" disabled>
+            </p>
+            <p>
+                <label> Доставки ИМ без примерки:</label>
+                <input type="text" id="basePrice1" value="70" disabled>
+                <input type="number" id="numberImBP" class="number" min="0">
+            </p>
+
+            <p>
+                <label>Доставки ИМ c примеркой:</label>
+                <input type="text" id="basePrice2" value="90" disabled>
+                <input type="number" id="numberImP" class="number" min="0">
+            </p>
+
+            <p>
+                <label> Доставка почты(B2B):</label>
+                <input type="text" id="basePrice3" value="47" disabled>
+                <input type="number" id="B2B" class="number" s min="0">
+            </p>
+
+            <p>
+                <label>Заказы:</label>
+                <input type="text" id="basePrice4" value="47" disabled>
+                <input type="number" id="orders" class="number" min="0">
+            </p>
+
+        </fieldset>
+        <div id="buttonList">
+            <input type="reset" value="Сброс всех полей">
+            <input type="button" id="calc" value="Рассчитать ЗП"></input>
+            <input type="text" name="result" id="result" placeholder=" ЗП с вычетом 13%" disabled>
+        </div>
+
+    </form>
 
     <script src="script.js"></script>
 </body>
