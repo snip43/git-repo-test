@@ -1,6 +1,7 @@
 const radioBtnEightTen = document.querySelector('#checkEightTenth'),
     radioBtnOne = document.querySelector('#checkOne'),
     radioBtnOneSecond = document.querySelector('#checkOneSecond'),
+    checkedRadio = document.querySelectorAll('.base'),
 
     basePrice1 = document.querySelector('#basePrice1'),
     basePrice2 = document.querySelector('#basePrice2'),
@@ -17,10 +18,37 @@ const radioBtnEightTen = document.querySelector('#checkEightTenth'),
 
     inputResult = document.querySelector('#result'),
     calcZP = document.querySelector('#calc');
+let arrOne = [70, 90, 47, 47];
+
+
+
+function changeRadioBtn() {
+    if (radioBtnEightTen.checked == true) {
+        checkedRadio.forEach(function(elem, i) {
+            let value = elem.value;
+            value = 0.8 * arrOne[i];
+            elem.value = value;
+            console.log(value);
+        });
+
+    } else if (radioBtnOne.checked == true) {
+        checkedRadio.forEach(function(elem, i) {
+            elem.value = arrOne[i];
+        });
+    } else {
+        checkedRadio.forEach(function(elem, i) {
+            let value = elem.value;
+            value = 1.2 * arrOne[i];
+            elem.value = value;
+        });
+    }
+}
+
 
 calcZP.addEventListener('click', getFinishZp);
 
 function getFinishZp() {
+    changeRadioBtn();
     inputResult.value = getFullSum() - getTax();
 }
 
