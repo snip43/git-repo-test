@@ -6,7 +6,7 @@
 
 form {
     margin: 50px auto;
-    width: 450px;
+    max-width: 420px;
 }
 
 fieldset {
@@ -36,7 +36,6 @@ fieldset input[type='radio'] {
 input {
     width: 45px;
     text-align: center;
-    /* border: 1px solid green; */
 }
 
 #buttonList {
@@ -52,10 +51,16 @@ input {
 
 fieldset p label:first-of-type {
     width: 55%;
-    /* border: 1px solid red; */
 }
 
 input:disabled {
     width: 50px;
     text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+    #buttonList {
+        flex-direction: column;
+        justify-content: space-around;
+    }
 }

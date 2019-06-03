@@ -2,6 +2,7 @@ const radioBtnEightTen = document.querySelector('#checkEightTenth'),
     radioBtnOne = document.querySelector('#checkOne'),
     radioBtnOneSecond = document.querySelector('#checkOneSecond'),
     checkedRadio = document.querySelectorAll('.base'),
+    smenaBtn = document.querySelector('#smena'),
 
     basePrice1 = document.querySelector('#basePrice1'),
     basePrice2 = document.querySelector('#basePrice2'),
@@ -12,14 +13,16 @@ const radioBtnEightTen = document.querySelector('#checkEightTenth'),
     numberImP = document.querySelector('#numberImP'),
     B2B = document.querySelector('#B2B'),
     orders = document.querySelector('#orders'),
+    numberBtn = document.querySelectorAll('.number'),
 
     oklad = document.querySelector('#oklad'),
     premiya = document.querySelector('#premiya'),
 
     inputResult = document.querySelector('#result'),
     calcZP = document.querySelector('#calc');
-let arrOne = [70, 90, 47, 47];
 
+let arrOne = [70, 90, 47, 47],
+    arrOklad = [12334, 6176];
 
 
 function changeRadioBtn() {
@@ -28,7 +31,6 @@ function changeRadioBtn() {
             let value = elem.value;
             value = 0.8 * arrOne[i];
             elem.value = value;
-            console.log(value);
         });
 
     } else if (radioBtnOne.checked == true) {
@@ -44,13 +46,13 @@ function changeRadioBtn() {
     }
 }
 
-
 calcZP.addEventListener('click', getFinishZp);
 
 function getFinishZp() {
     changeRadioBtn();
     inputResult.value = getFullSum() - getTax();
 }
+
 
 function getTax() {
     return Math.floor((parseInt(getPrice(oklad)) + parseInt(getPrice(premiya)) + getSum()) / 100 * 13);
