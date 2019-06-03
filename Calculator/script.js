@@ -8,10 +8,12 @@ const inputText = document.querySelector('#allSection #text'),
 
 
 buttonSigns.forEach(function(elem) {
-    elem.addEventListener('click', function() {
-        areaMemory.innerHTML = inputText.value;
-    });
+    elem.addEventListener('click', getSign);
 });
+
+function getSign() {
+    areaMemory.innerHTML = inputText.value;
+}
 
 buttonNumbersAll.forEach(function(elem) {
     elem.addEventListener('mousemove', function() {
@@ -19,7 +21,7 @@ buttonNumbersAll.forEach(function(elem) {
     });
     elem.addEventListener('click', function() {
         inputText.value += elem.innerHTML;
-        // areaMemory.innerHTML += elem.innerHTML;
+
     });
 });
 
@@ -31,6 +33,8 @@ buttonClear.addEventListener('click', function(event) {
 
 buttonEnter.addEventListener('click', function(event) {
     event.preventDefault();
-    let code = 'inputText.value';
-    inputText.value = eval(code);
+    let code = inputText.value;
+    let codeCut = code.slice(0, -1);
+
+    inputText.value = eval(codeCut);
 });
