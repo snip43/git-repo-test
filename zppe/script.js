@@ -50,9 +50,12 @@ calcZP.addEventListener('click', getFinishZp);
 
 function getFinishZp() {
     changeRadioBtn();
-    inputResult.value = getFullSum() - getTax();
+    if (isNaN(getFullSum() - getTax())) {
+        inputResult.value = 'Введите доставки!';
+    } else {
+        inputResult.value = getFullSum() - getTax();
+    }
 }
-
 
 function getTax() {
     return Math.floor((parseInt(getPrice(oklad)) + parseInt(getPrice(premiya)) + getSum()) / 100 * 13);
