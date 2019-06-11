@@ -1,45 +1,34 @@
-// Урок 66.Наследование классов в JavaScript
+// Урок 66.Применение ООП при работе в DOM
 // --------------------------------------------------------
-// Реализуйте класс Student (Студент), который будет наследовать от класса User, подобно тому, как это сделано в теоретической части урока. Этот класс должен иметь следующие свойства: name (имя, наследуется от User), surname (фамилия, наследуется от User), year (год поступления в вуз). Класс должен иметь метод getFullName() (наследуется от User), с помощью которого можно вывести одновременно имя и фамилию студента. Также класс должен иметь метод getCourse(), который будет выводить текущий курс студента (от 1 до 5). Курс вычисляется так: нужно от текущего года отнять год поступления в вуз. Текущий год получите самостоятельно.
+// Реализуйте класс Rectangle, о котором я рассказываю в видео в теоретической части урока. У него должны быть следующие свойства: ширина width, высота height. Также у него должны быть следующие методы: получить ширину getWidth, установить ширину setWidth, получить высоту getHeight, установить высоту setHeight.
 
-// var student = new Student('Иван', 'Иванов', 2016);
+class Rectangle {
+    constructor(name, width, height) {
 
-// console.log(worker.name); //выведет 'Иван'
-// console.log(worker.surname); //выведет 'Иванов'
-// console.log(worker.getFullName()); //выведет 'Иван Иванов'
-// console.log(worker.year); //выведет 2016console.log(worker.getCourse()); //выведет 3 - третий курс, так как текущий год 2019
+        this.elem = document.createElement(name);
 
+        this.setWidth(width);
+        this.setHeight(height);
+        this.elem.style.border = '1px solid red';
 
-class User {
-    constructor(name, surname) {
-        this.name = name;
-        this.surname = surname;
+        document.body.appendChild(this.elem);
+
     }
-    getFullName() {
-        return this.name + ' ' + this.surname;
+    getWidth() {
+        return parseInt(this.elem.style.width);
     }
-}
-
-class Student extends User {
-    constructor(name, surname, year) {
-        super(name, surname);
-        this.year = year;
+    getHeight() {
+        return parseInt(this.elem.style.width);
     }
-    getCourse() {
-        let date = new Date(),
-            resultDate = date.getFullYear() - this.year;
-        if (resultDate >= 1 && resultDate <= 5) {
-            console.log(`Студент ${this.name} ${this.surname} находится на ${resultDate} курсе`);
-        } else {
-            console.log(`Что-то не так со студентом,учится уже ${resultDate} лет :)`);
-        }
+    setWidth(width) {
+        this.elem.style.width = width + 'px';
+    }
+    setHeight(height) {
+        this.elem.style.height = height + 'px';
     }
 }
 
-var student = new Student('Иван', 'Иванов', 2010);
-
-console.log(student.name); //выведет 'Иван'
-console.log(student.surname); //выведет 'Иванов'
-console.log(student.getFullName()); //выведет 'Иван Иванов'
-console.log(student.year); //выведет 2016
-console.log(student.getCourse()); //выведет 3 - третий курс, так как текущий год 2019
+let rec1 = new Rectangle('div', '100', '200');
+// rec1.setWidth(300);
+console.log(rec1.getWidth());
+let rec2 = new Rectangle('p', '200', '100');
