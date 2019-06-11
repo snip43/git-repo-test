@@ -1,0 +1,15 @@
+.www {
+    color: red;
+}
+
+.new-class {
+    color: green;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+}
