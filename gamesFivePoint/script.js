@@ -1,18 +1,8 @@
-const wrapperPlace = document.querySelector('#wrapper'),
-    arrColors = ['green', 'red'],
-    arrGamers = ['gamer1', 'gamer2'];
-
-class Gamer {
-    constructor(name, color) {
-        this.name = name;
-        this.color = color;
-    }
-
-}
-let Roman = new Gamer('Roman', 'green');
+const wrapperPlace = document.querySelector('#wrapper');
+let arrGamers = ['gamer1', 'gamer2'],
+    name = 'greenColor';
 
 createTableToWrapperPlace();
-
 
 function createTableToWrapperPlace() {
     const table = document.createElement('table');
@@ -29,18 +19,30 @@ function createTableToWrapperPlace() {
     clickTable();
 }
 
+
 function clickTable() {
-    const tableGett = wrapperPlace.querySelector('table'),
-        tdGett = wrapperPlace.querySelectorAll('td');
-
-    tableGett.addEventListener('click', function(event) {
-
+    const tableGett = wrapperPlace.querySelector('table');
+    tableGett.addEventListener('click', function clickTd(event) {
         if (event.target.tagName == 'TD') {
-            event.target.style.backgroundColor = 'green';
+            setClass(name);
+            changeClass();
+            if (event.target.classList.contains('gamer')) {
+                event.target.preventDefault();
+            }
         }
     });
 }
 
-function changeColors() {
+function setClass(name) {
+    event.target.classList.add(name);
+    event.target.classList.add('gamer');
+}
 
+function changeClass() {
+    if (name == 'greenColor') {
+        name = 'redColor';
+    } else {
+        name = 'greenColor';
+    }
+    return name;
 }
