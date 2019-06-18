@@ -1,34 +1,43 @@
-// Урок 66.Применение ООП при работе в DOM
-// --------------------------------------------------------
-// Реализуйте класс Rectangle, о котором я рассказываю в видео в теоретической части урока. У него должны быть следующие свойства: ширина width, высота height. Также у него должны быть следующие методы: получить ширину getWidth, установить ширину setWidth, получить высоту getHeight, установить высоту setHeight.
+const addMessage = document.querySelector('.message'),
+    addButton = document.querySelector('.add'),
+    todo = document.querySelector('.todo');
 
-class Rectangle {
-    constructor(name, width, height) {
+let todoList = [];
 
-        this.elem = document.createElement(name);
 
-        this.setWidth(width);
-        this.setHeight(height);
-        this.elem.style.border = '1px solid red';
 
-        document.body.appendChild(this.elem);
+let displayToDo = () => {
+    let displayMessage = '';
 
-    }
-    getWidth() {
-        return parseInt(this.elem.style.width);
-    }
-    getHeight() {
-        return parseInt(this.elem.style.width);
-    }
-    setWidth(width) {
-        this.elem.style.width = width + 'px';
-    }
-    setHeight(height) {
-        this.elem.style.height = height + 'px';
-    }
+    todoList.forEach(function(item, i) {
+
+        let checked = item.checked ? 'checked' : '';
+
+        displayMessage += `
+				<li>
+					<input type='checkbox' id='item_${i}' ${checked}>
+					<label for='item_${i}'>${item.todo}</label>
+				</li>
+				`;
+    });
+    todo.innerHTML = displayMessage;
+};
+
+if (localStorage.getItem('todo')) {
+    todoList = JSON.parse(localStorage.getItem('todo'));
+    displayToDo();
 }
 
-let rec1 = new Rectangle('div', '100', '200');
-// rec1.setWidth(300);
-console.log(rec1.getWidth());
-let rec2 = new Rectangle('p', '200', '100');
+addButton.addEventListener('click', function() {
+    let newTodo = {
+        todo: addMessage.value,
+        checked: false
+    };
+    todoList.push(newTodo);
+    displayToDo();
+    localStorage.setItem('todo', JSON.stringify(todoList));
+});
+
+todo.addEventListener('change', (event) => {
+    console.log(event);
+});
