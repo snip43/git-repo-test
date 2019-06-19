@@ -78,3 +78,15 @@ function getPrice(num1, num2) {
         return parseInt(num1.value);
     }
 }
+
+function getMoneyForCurrentDay() {
+    const inputDayCurrent = document.querySelector('#currentDay'),
+        inputDayAll = document.querySelector('#allDay');
+
+    oklad.value = inputDayCurrent.value
+
+}
+
+function getPriceForOneDay() {
+
+}
