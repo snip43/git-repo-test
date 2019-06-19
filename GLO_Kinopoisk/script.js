@@ -1,42 +1,39 @@
 const searchForm = document.querySelector('#search-form');
-const movie = document.querySelector('#movies');
+const movie = document.querySelector('#movies'),
+    urlPoster = 'https://image.tmdb.org/t/p/w500';
 
 function apiSearch(event) {
     event.preventDefault();
     const searchText = document.querySelector('.form-control').value,
         server = 'https://api.themoviedb.org/3/search/multi?api_key=3b90f467b040d934059e4076c62ee054&language=ru&query=---' + searchText;
+    movie.innerHTML = 'Загрузка...';
 
-    requestApi(server);
+    fetch(server)
+        .then(function(value) {
+            return value.json();
+        })
+        .then(function(output) {
+
+            let inner = '';
+            output.results.forEach(function(item) {
+                let nameItem = item.name || item.title;
+                if (item.poster_path !== null) {
+                    inner += `
+									<div class='col-12 col-md-4 col-xl-3 item'> 
+									<img src='${urlPoster + item.poster_path}' alt='${nameItem}'>
+									<h5>${nameItem}</h5>
+									</div>
+										`;
+                }
+
+            });
+
+            movie.innerHTML = inner;
+        })
+        .catch(function(reason) {
+            movie.innerHTML = 'Упс,что-то пошло не так';
+            console.log('error: ' + reason.status);
+        });
 }
 
 searchForm.addEventListener('submit', apiSearch);
-
-function requestApi(url) {
-    const request = new XMLHttpRequest();
-    request.open('GET', url);
-    request.send();
-
-    request.addEventListener('readystatechange', () => {
-        if (request.readyState !== 4) return;
-
-        if (request.status !== 200) {
-            console.log('error' + request.status);
-            return;
-        }
-        const output = JSON.parse(request.responseText);
-        let inner = '';
-
-        output.results.forEach(function(item) {
-            let nameItem = item.name || item.title;
-            inner += `<div class='col-sm-1 col-md-3'> ${nameItem}</div>	`;
-        });
-        movie.innerHTML = inner;
-    });
-
-
-
-
-
-
-    return url;
-}
