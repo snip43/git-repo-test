@@ -14,14 +14,16 @@
         <fieldset>
             <legend>Ввод данных</legend>
             <p>
-                <label> Кол-во отработанных дней:</label>
-                <input type="number" id="currentDay">
-
+                <label> Всего рабочих дней:</label>
+                <input type="number" id="allDay">
             </p>
             <p>
-                <label> Всего рабочих дней:</label>
+                <label> Кол-во отработанных дней:</label>
                 <input type="number" id="currentDay">
-
+            </p>
+            <p>
+                <label> Оклад/день:</label>
+                <input type="number" id="priceDay" disabled>
             </p>
             <p>
                 <label> Выберите коэффициент:</label>
@@ -29,12 +31,6 @@
                 <label><input type="radio" name="coef" id="checkOne"  checked>1</label>
                 <label><input type="radio" name="coef" id="checkOneSecond">1.2</label>
             </p>
-
-            <!-- <p>
-                Кол-во рабочих дней:
-                <input type="number" id="smena">
-            </p> -->
-
             <p>
                 <label> Оклад / премия 50%: </label>
                 <input type="text" id="oklad" value="12334" disabled>

@@ -19,10 +19,15 @@ const radioBtnEightTen = document.querySelector('#checkEightTenth'),
     premiya = document.querySelector('#premiya'),
 
     inputResult = document.querySelector('#result'),
-    calcZP = document.querySelector('#calc');
+    calcZP = document.querySelector('#calc'),
+    inputPriceDay = document.querySelector('#priceDay'),
+    inputAllDay = document.querySelector('#allDay'),
+    inputCurrentDay = document.querySelector('#currentDay');
 
-let arrOne = [70, 90, 47, 47],
-    arrOklad = [12334, 6176];
+let arrOne = [70, 90, 47, 47];
+// arrOklad = [12334, 6176],
+// okladIM = 12334;
+
 
 
 function changeRadioBtn() {
@@ -53,7 +58,10 @@ function getFinishZp() {
     if (isNaN(getFullSum() - getTax())) {
         inputResult.value = 'Введите доставки!';
     } else {
+        getPriceAllDay();
+        getPriceCurrentDay();
         inputResult.value = getFullSum() - getTax();
+
     }
 }
 
@@ -77,4 +85,20 @@ function getPrice(num1, num2) {
     } else {
         return parseInt(num1.value);
     }
+}
+
+function getPriceAllDay() {
+
+    if (inputAllDay.value.length !== 0 || inputAllDay.value !== 0) {
+        oklad.value = okladIM;
+        premiya.value = Math.round(okladIM / 2);
+
+    } else {
+        inputPriceDay.value = 'Введите кол-во дней ВСЕГО рабочих';
+    }
+
+}
+
+function getPriceCurrentDay() {
+    priceDay.value = Math.round(getPriceAllDay() / inputCurrentDay.value);
 }
