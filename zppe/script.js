@@ -22,11 +22,11 @@ const radioBtnEightTen = document.querySelector('#checkEightTenth'),
     calcZP = document.querySelector('#calc'),
     inputPriceDay = document.querySelector('#priceDay'),
     inputAllDay = document.querySelector('#allDay'),
-    inputCurrentDay = document.querySelector('#currentDay');
+    inputCurrentDay = document.querySelector('#currentDay'),
 
-formStart = document.querySelector('#layerStart');
-startButton = document.querySelector('#buttonStart');
-dataNameInput = document.querySelector('#data-name-input'),
+    formStart = document.querySelector('#layerStart'),
+    startButton = document.querySelector('#buttonStart'),
+    dataNameInput = document.querySelector('#data-name-input'),
     dataNumberInput = document.querySelector('#data-number-input');
 
 
@@ -36,6 +36,7 @@ let arrOne = [70, 90, 47, 47];
 startButton.addEventListener('click', function() {
     let personName = document.querySelector('#namePerson'),
         personNumber = document.querySelector('#numberPerson');
+
     if (dataNameInput.value && dataNumberInput.value) {
         personName.innerHTML += dataNameInput.value;
         personNumber.innerHTML += dataNumberInput.value;
@@ -46,7 +47,6 @@ startButton.addEventListener('click', function() {
         alert('Заполните все обязательные поля!');
         return;
     }
-
 });
 
 function changeRadioBtn() {
@@ -72,6 +72,7 @@ function changeRadioBtn() {
 
 calcZP.addEventListener('click', getFinishZp);
 
+
 function getFinishZp() {
     changeRadioBtn();
     if (isNaN(getFullSum() - getTax())) {
@@ -83,15 +84,15 @@ function getFinishZp() {
     }
 }
 
+
+
 function getTax() {
     return Math.floor(getFullSum() * 0.13);
 }
 
 function getFullSum() {
     return parseInt(getPrice(oklad)) + parseInt(getPrice(premiya)) + getSum() + getPriceRentCar();
-
 }
-
 
 function getSum() {
     let res = getPrice(basePrice1, numberImBP) + getPrice(basePrice2, numberImP) + getPrice(basePrice3, B2B) + getPrice(basePrice4, orders);
@@ -120,7 +121,6 @@ function getPrice(num1, num2) {
         }
         getPriceRentCar();
     });
-
 }());
 
 function getOkladOneDay() {
@@ -141,3 +141,13 @@ function getAllZp() {
     allZp = document.querySelector('#allZp');
     allZp.value = getFullSum();
 }
+
+(function clickBack() {
+    buttonBack = document.querySelector('#back');
+    buttonBack.addEventListener('click', function() {
+        layerBase.reset();
+        formStart.reset();
+        layerBase.style.display = 'none';
+        formStart.style.display = 'block';
+    });
+}());
