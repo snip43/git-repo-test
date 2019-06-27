@@ -24,11 +24,30 @@ const radioBtnEightTen = document.querySelector('#checkEightTenth'),
     inputAllDay = document.querySelector('#allDay'),
     inputCurrentDay = document.querySelector('#currentDay');
 
+formStart = document.querySelector('#layerStart');
+startButton = document.querySelector('#buttonStart');
+dataNameInput = document.querySelector('#data-name-input'),
+    dataNumberInput = document.querySelector('#data-number-input');
+
+
+
 let arrOne = [70, 90, 47, 47];
-// arrOklad = [12334, 6176],
-// okladIM = 12334;
 
+startButton.addEventListener('click', function() {
+    let personName = document.querySelector('#namePerson'),
+        personNumber = document.querySelector('#numberPerson');
+    if (dataNameInput.value && dataNumberInput.value) {
+        personName.innerHTML += dataNameInput.value;
+        personNumber.innerHTML += dataNumberInput.value;
+        formStart.style.display = 'none';
+        layerBase.style.display = 'block';
 
+    } else {
+        alert('Заполните все обязательные поля!');
+        return;
+    }
+
+});
 
 function changeRadioBtn() {
     if (radioBtnEightTen.checked == true) {
@@ -58,19 +77,19 @@ function getFinishZp() {
     if (isNaN(getFullSum() - getTax())) {
         inputResult.value = 'Введите доставки!';
     } else {
-        getPriceAllDay();
-        getPriceCurrentDay();
         inputResult.value = getFullSum() - getTax();
-
+        getFullPercents();
+        getAllZp();
     }
 }
 
 function getTax() {
-    return Math.floor((parseInt(getPrice(oklad)) + parseInt(getPrice(premiya)) + getSum()) / 100 * 13);
+    return Math.floor(getFullSum() * 0.13);
 }
 
 function getFullSum() {
-    return parseInt(getPrice(oklad)) + parseInt(getPrice(premiya)) + getSum();
+    return parseInt(getPrice(oklad)) + parseInt(getPrice(premiya)) + getSum() + getPriceRentCar();
+
 }
 
 
@@ -87,18 +106,38 @@ function getPrice(num1, num2) {
     }
 }
 
-function getPriceAllDay() {
+(function getOklad() {
+    inputCurrentDay.addEventListener('blur', function() {
+        if (inputAllDay.value == inputCurrentDay.value) {
+            oklad.value = 12334;
+            premiya.value = Math.floor(oklad.value / 2);
+            getOkladOneDay();
 
-    if (inputAllDay.value.length !== 0 || inputAllDay.value !== 0) {
-        oklad.value = okladIM;
-        premiya.value = Math.round(okladIM / 2);
+        } else {
+            getOkladOneDay();
+            oklad.value = getOkladOneDay() * inputCurrentDay.value;
+            premiya.value = Math.floor(oklad.value / 2);
+        }
+        getPriceRentCar();
+    });
 
-    } else {
-        inputPriceDay.value = 'Введите кол-во дней ВСЕГО рабочих';
-    }
+}());
 
+function getOkladOneDay() {
+    return inputPriceDay.value = Math.floor(12334 / inputAllDay.value);
 }
 
-function getPriceCurrentDay() {
-    priceDay.value = Math.round(getPriceAllDay() / inputCurrentDay.value);
+function getPriceRentCar() {
+    inputRentCar = document.querySelector('#rentCar');
+
+    return inputRentCar.value = parseInt(Math.floor(910 * inputCurrentDay.value));
+}
+
+function getFullPercents() {
+    thirteenPercents.value = getTax();
+}
+
+function getAllZp() {
+    allZp = document.querySelector('#allZp');
+    allZp.value = getFullSum();
 }
