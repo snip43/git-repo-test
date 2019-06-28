@@ -29,9 +29,12 @@ const radioBtnEightTen = document.querySelector('#checkEightTenth'),
     dataNameInput = document.querySelector('#data-name-input'),
     dataNumberInput = document.querySelector('#data-number-input');
 
-
-
 let arrOne = [70, 90, 47, 47];
+
+window.addEventListener('load', function() {
+    layerBase.style.display = 'none';
+    formStart.style.display = 'block';
+});
 
 startButton.addEventListener('click', function() {
     let personName = document.querySelector('#namePerson'),
@@ -42,7 +45,6 @@ startButton.addEventListener('click', function() {
         personNumber.innerHTML += dataNumberInput.value;
         formStart.style.display = 'none';
         layerBase.style.display = 'block';
-
     } else {
         alert('Заполните все обязательные поля!');
         return;
@@ -129,7 +131,6 @@ function getOkladOneDay() {
 
 function getPriceRentCar() {
     inputRentCar = document.querySelector('#rentCar');
-
     return inputRentCar.value = parseInt(Math.floor(910 * inputCurrentDay.value));
 }
 
