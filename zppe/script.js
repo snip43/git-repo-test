@@ -31,11 +31,6 @@ const radioBtnEightTen = document.querySelector('#checkEightTenth'),
 
 let arrOne = [70, 90, 47, 47];
 
-window.addEventListener('load', function() {
-    layerBase.style.display = 'none';
-    formStart.style.display = 'block';
-});
-
 startButton.addEventListener('click', function() {
     let personName = document.querySelector('#namePerson'),
         personNumber = document.querySelector('#numberPerson');
