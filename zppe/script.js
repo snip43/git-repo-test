@@ -24,27 +24,10 @@ const radioBtnEightTen = document.querySelector('#checkEightTenth'),
     inputAllDay = document.querySelector('#allDay'),
     inputCurrentDay = document.querySelector('#currentDay'),
 
-    formStart = document.querySelector('#layerStart'),
-    startButton = document.querySelector('#buttonStart'),
     dataNameInput = document.querySelector('#data-name-input'),
     dataNumberInput = document.querySelector('#data-number-input');
 
 let arrOne = [70, 90, 47, 47];
-
-startButton.addEventListener('click', function() {
-    let personName = document.querySelector('#namePerson'),
-        personNumber = document.querySelector('#numberPerson');
-
-    if (dataNameInput.value && dataNumberInput.value) {
-        personName.innerHTML += dataNameInput.value;
-        personNumber.innerHTML += dataNumberInput.value;
-        formStart.style.display = 'none';
-        layerBase.style.display = 'block';
-    } else {
-        alert('Заполните все обязательные поля!');
-        return;
-    }
-});
 
 function changeRadioBtn() {
     if (radioBtnEightTen.checked == true) {
@@ -137,13 +120,3 @@ function getAllZp() {
     allZp = document.querySelector('#allZp');
     allZp.value = getFullSum();
 }
-
-(function clickBack() {
-    buttonBack = document.querySelector('#back');
-    buttonBack.addEventListener('click', function() {
-        layerBase.reset();
-        formStart.reset();
-        layerBase.style.display = 'none';
-        formStart.style.display = 'block';
-    });
-}());
