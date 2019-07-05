@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>zppe - Зарплата курьера ПониЭкспресс</title>
+</head>
+
+<body>
+    <form action="#" autocomplete="off" target="_self" id="layerBase">
+        <fieldset id="baseField">
+            <legend>Ввод данных</legend>
+            <p>
+                <label> Всего рабочих дней:</label>
+                <input type="number" id="allDay">
+            </p>
+            <p>
+                <label> Кол-во отработанных дней:</label>
+                <input type="number" id="currentDay">
+            </p>
+            <p>
+                <label> Выберите коэффициент:</label>
+                <label><input type="radio" name="coef" id="checkEightTenth">0.8</label>
+                <label><input type="radio" name="coef" id="checkOne"  checked>1</label>
+                <label><input type="radio" name="coef" id="checkOneSecond">1.2</label>
+            </p>
+
+            <p>
+                <label> Доставки ИМ без примерки:</label>
+                <input type="text" id="basePrice1" class="base" value="70" disabled>
+                <input type="number" id="numberImBP" class="number" min="0">
+            </p>
+
+            <p>
+                <label>Доставки ИМ c примеркой:</label>
+                <input type="text" id="basePrice2" class="base" value="90" disabled>
+                <input type="number" id="numberImP" class="number" min="0">
+            </p>
+            <p>
+                <label> Доставка почты(B2B):</label>
+                <input type="text" id="basePrice3" class="base" value="47" disabled>
+                <input type="number" id="B2B" class="number" s min="0">
+            </p>
+
+            <p>
+                <label>Заказы:</label>
+                <input type="text" id="basePrice4" class="base" value="47" disabled>
+                <input type="number" id="orders" class="number" min="0">
+            </p>
+
+        </fieldset>
+        <!-- -----------------------КНОПКИ------------------------------------------------------------- -->
+        <div id="buttonList">
+            <input type="reset" value="Сброс всех полей">
+            <input type="button" id="calc" value="Рассчитать ЗП"></input>
+            <input type="button" id="back" value="Рассчитать другого курьера"></input>
+
+        </div>
+        <!-- ------------------------------------------------------- -->
+        <!-- -----------------------------------ИТОГИ-------------------------------------- -->
+        <fieldset id="finishSet">
+            <legend>Итоги:</legend>
+
+            <p id="namePerson">
+                Курьер :
+            </p>
+            <p id="numberPerson">
+                Табельный номер:
+            </p>
+            <p>
+                <label> Оклад/день:</label>
+                <input type="text" id="priceDay" disabled>
+            </p>
+            <p>
+                <label> Оклад/месяц: </label>
+                <input type="text" id="oklad" disabled>
+            </p>
+            <p>
+                <label> Премия 50% от оклада: </label>
+                <input type="text" id="premiya" disabled>
+            </p>
+            <p>
+                <label>Аренда авто: </label>
+                <input type="text" id="rentCar" disabled>
+            </p>
+            <p>
+                <label>Всего начислено: </label>
+                <input type="text" id="allZp" disabled>
+            </p>
+            <p>
+                13 %:
+                <input type="text" name="thirteenPercents" id="thirteenPercents" disabled>
+            </p>
+            <p>
+                Сумма к выплате(-13%):
+                <input type="text" name="result" id="result" disabled>
+            </p>
+
+        </fieldset>
+        <!-- ---------------------------------------------------------------- -->
+    </form>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
