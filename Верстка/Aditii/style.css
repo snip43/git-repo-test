@@ -1,0 +1,160 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    widows: 1324px;
+    height: 124px;
+    background: #3cc4b7;
+    font-family: 'Roboto', sans-serif;
+}
+
+.header {
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.container-50 {
+    max-width: 900px;
+    margin: auto;
+    /* border: 1px solid red; */
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 1px solid green; */
+    padding: 61px 0 20px;
+}
+
+.nav__logo a {
+    /* Style for "Aditii" */
+    width: 110px;
+    height: 43px;
+    color: #3cc3b5;
+    font-family: 'Lobster', cursive;
+    font-weight: bold;
+    font-size: 49px;
+    font-weight: 400;
+    line-height: 19px;
+    text-decoration: none;
+}
+
+.nav__search {
+    /* Style for "Rectangle" */
+    width: 434px;
+    height: 31px;
+    border: 1px solid #e1e1e1;
+    background: url(../Aditii/img/nav_search_img.png) no-repeat center right 8px;
+}
+
+.nav__cart a {
+    display: flex;
+    justify-content: space-between;
+    flex-basis: 10%;
+    text-decoration: none;
+}
+
+.nav__cart__img {
+    background: url(../Aditii/img/Shape_2.png) no-repeat;
+    background-color: #fff;
+    width: 41px;
+    height: 37px;
+}
+
+.nav__cart__text {
+    margin-left: 17px;
+    font-size: 33px;
+    font-weight: 400;
+    color: #a1a1a1;
+}
+
+.top-menu {
+    background-color: #4ccfc1;
+}
+
+.nav__top-menu {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 0;
+    color: #fff;
+}
+
+.nav__top-menu a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 16px;
+}
+
+.nav__top-menu a:hover {
+    color: rgb(116, 147, 45);
+    transition: .5s linear;
+}
+
+.banner {
+    color: #fff;
+}
+
+.banner__card__photo {
+    width: 278px;
+    height: 325px;
+    background: url(../Aditii/img/banner_card_photo.png)
+}
+
+.banner__card {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 67px;
+    padding-bottom: 34px;
+}
+
+.banner_card_photo_info {
+    width: 402px;
+}
+
+.banner_card_photo_info h1 {
+    text-transform: uppercase;
+    font-style: 61px;
+    margin-bottom: 26px;
+}
+
+.banner_card_photo_info p {
+    font-family: "Open Sans";
+    font-size: 17px;
+    margin-bottom: 32px;
+    line-height: 28px;
+}
+
+.banner_card_photo_info button {
+    font-family: "Open Sans";
+    text-transform: uppercase;
+    color: #ffffff;
+    width: 133px;
+    height: 40px;
+    border: 3px solid #ffffff;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: #3cc3b3;
+    border-radius: 5px;
+}
+
+.banner_card_photo_info button:hover {
+    color: #3bc5b5;
+    background-color: #fff;
+    border-color: #3bc5b5;
+    transition: all .5s linear;
+    cursor: pointer;
+}
+
+.categories {
+    height: 300px;
+    background-color: #fff;
+}
