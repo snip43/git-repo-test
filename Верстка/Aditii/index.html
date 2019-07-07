@@ -12,86 +12,263 @@
     <link rel="stylesheet" href="style.css">
     <title>Aditii</title>
 </head>
-<header class="header">
-    <div class="container">
-        <div class="nav">
-            <div class="nav__logo"><a href="#">Aditii</a></div>
-            <input class="nav__search" type="search"></input>
-            <div class="nav__cart">
-                <a href="#">
-                    <div class="nav__cart__img"></div>
-                    <div class="nav__cart__text">$300</div>
-                </a>
-            </div>
-            <!-- nav__cart -->
-        </div>
-        <!-- nav -->
-    </div>
-    <!-- container header -->
-    <div class="top-menu">
-        <div class="container">
-            <div class="nav__top-menu">
-                <a href="#">Home</a> |
-                <a href="#">Sale</a>|
-                <a href="#">handbags</a>|
-                <a href="#">wallets</a>|
-                <a href="#">accessories</a>|
-                <a href="#">mens store</a>|
-                <a href="#">shoes</a>|
-                <a href="#">vintage</a>|
-                <a href="#">services</a>|
-                <a href="#">contact us</a>
-            </div>
-        </div>
-        <!-- /container top-menu -->
-    </div>
-    <!-- /top-menu -->
-</header>
-
-<main>
-
-    <div class="banner">
-        <div class="container-50">
-            <div class="banner__card">
-                <div class="banner__card__photo"></div>
-                <div class="banner_card_photo_info">
-                    <h1>Cowhide Standard&nbsp;Crew</h1>
-                    <p>White coloured, short-sleeved, printed T-shirt for men by Levi's. This crew-neck T-shirt is made of organic cotton and comes in a regular fit. </p>
-                    <button type="submit">Shop now</button>
-                </div>
-                <!-- banner_card_photo_info -->
-            </div>
-            <!-- banner__card -->
-        </div>
-        <!-- container banner -->
-    </div>
-    <!-- banner -->
-    <section class="categories">
-        <div class="container">
-            <div class="categories_card">
-                <div class="categories_card_photo"></div>
-                <div class="categories_card_text"></div>
-                <button class="shop_small">shop</button>
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-
-
-</main>
-
-
-
-
-
-
-
 
 <body>
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <div class="nav__logo"><a href="#">Aditii</a></div>
+                <input class="nav__search" type="search"></input>
+                <div class="nav__cart">
+                    <a href="#">
+                        <div class="nav__cart__img"></div>
+                        <div class="nav__cart__text">$300</div>
+                    </a>
+                </div>
+                <!-- nav__cart -->
+            </div>
+            <!-- nav -->
+        </div>
+        <!-- container header -->
+        <div class="top-menu">
+            <div class="container">
+                <div class="nav__top-menu">
+                    <a href="#">Home</a> |
+                    <a href="#">Sale</a>|
+                    <a href="#">handbags</a>|
+                    <a href="#">wallets</a>|
+                    <a href="#">accessories</a>|
+                    <a href="#">mens store</a>|
+                    <a href="#">shoes</a>|
+                    <a href="#">vintage</a>|
+                    <a href="#">services</a>|
+                    <a href="#">contact us</a>
+                </div>
+            </div>
+            <!-- /container top-menu -->
+        </div>
+        <!-- /top-menu -->
+    </header>
+
+    <main>
+
+        <div class="banner">
+            <div class="container-50">
+                <div class="banner__card">
+                    <div class="banner__card__photo"></div>
+                    <div class="banner_card_photo_info">
+                        <h1>Cowhide Standard&nbsp;Crew</h1>
+                        <p>White coloured, short-sleeved, printed T-shirt for men by Levi's. This crew-neck T-shirt is made of organic cotton and comes in a regular fit. </p>
+                        <button type="submit">Shop now</button>
+                    </div>
+                    <!-- banner_card_photo_info -->
+
+                </div>
+                <!-- banner__card -->
+                <div class="banner-dots">
+                    <span class="banner-dots_item"></span>
+                    <span class="banner-dots_item"></span>
+                    <span class="banner-dots_item"></span>
+                    <span class="banner-dots_item"></span>
+                    <span class="banner-dots_item"></span>
+                    <span class="banner-dots_item"></span>
+                </div>
+            </div>
+            <!-- container banner -->
+
+        </div>
+        <!-- banner -->
+        <section class="categories">
+            <div class="container">
+
+                <div class="categories_card">
+                    <a class="prev" onclick="minusSlide()">&#10094;</a>
+                    <div class="categories_card_item">
+                        <div class="categories_card_photo">
+                            <img src="../Aditii/img/categories_card_photo_1.png" alt="bRANDED sHOES">
+                        </div>
+                        <div class="categories_card_item_info">
+                            <div class="categories_card_text">bRANDED sHOES</div>
+                            <button class="shop_small">shop</button>
+                        </div>
+                    </div>
+                    <div class="categories_card_item">
+                        <div class="categories_card_photo">
+                            <img src="../Aditii/img/categories_card_photo_2.png" alt="bRANDED sHOES">
+                        </div>
+                        <div class="categories_card_item_info">
+                            <div class="categories_card_text">bRANDED tSHIRTS</div>
+                            <button class="shop_small">shop</button>
+                        </div>
+                    </div>
+                    <div class="categories_card_item">
+                        <div class="categories_card_photo">
+                            <img src="../Aditii/img/categories_card_photo.png" alt="bRANDED sHOES">
+                        </div>
+                        <div class="categories_card_item_info">
+                            <div class="categories_card_text">bRANDED sHorts</div>
+                            <button class="shop_small">shop</button>
+                        </div>
+                    </div>
+                    <a class="next" onclick="plusSlide()">&#10095;</a>
+                </div>
+                <!--categories_card  -->
+            </div>
+            <!-- container -->
+        </section>
+        <!-- categories -->
+        <section class="sign">
+            <div class="container">
+                <div class="signature">
+                    <h4>FEATURED pRODUCTS</h4>
+                </div>
+                <!-- signature -->
+            </div>
+        </section>
+        <!-- section sign -->
+        <section class="products">
+            <div class="container-50">
+                <div class="product_cards">
+                    <div class="product_card_item">
+                        <div class="product_photo"><img src="../Aditii/img/product_shoes.png" alt="product_shoes"></div>
+                        <div class="product_text">bRANDED sHOEs</div>
+                        <div class="product_price">
+                            <div class="product_cost">$300</div>
+                            <button type="submit" class="product_button">buy now</button>
+                        </div>
+                    </div>
+                    <!-- product_card_item -->
+                    <div class="product_card_item">
+                        <div class="product_photo"><img src="../Aditii/img/product_tShots.png" alt="product_shoes"></div>
+                        <div class="product_text">bRANDED tEES</div>
+                        <div class="product_price">
+                            <div class="product_cost">$300</div>
+                            <button type="submit" class="product_button">buy now</button>
+                        </div>
+                    </div>
+                    <!-- product_card_item -->
+                    <div class="product_card_item">
+                        <div class="product_photo"><img src="../Aditii/img/product_TShotsWhite.png" alt="product_shoes"></div>
+                        <div class="product_text">bRANDED tshits white</div>
+                        <div class="product_price">
+                            <div class="product_cost">$300</div>
+                            <button type="submit" class="product_button">buy now</button>
+                        </div>
+                    </div>
+                    <!-- product_card_item -->
+                    <div class="product_card_item">
+                        <div class="product_photo"><img src="../Aditii/img/product_wallet.png" alt="product_shoes"></div>
+                        <div class="product_text">branded wallet</div>
+                        <div class="product_price">
+                            <div class="product_cost">$300</div>
+                            <button type="submit" class="product_button">buy now</button>
+                        </div>
+                    </div>
+                    <!-- product_card_item -->
+                    <div class="product_card_item">
+                        <div class="product_photo"><img src="../Aditii/img/product_bag.png" alt="product_shoes"></div>
+                        <div class="product_text">branded bag</div>
+                        <div class="product_price">
+                            <div class="product_cost">$300</div>
+                            <button type="submit" class="product_button">buy now</button>
+                        </div>
+                    </div>
+                    <!-- product_card_item -->
+                    <div class="product_card_item">
+                        <div class="product_photo"><img src="../Aditii/img/product_shorts.png" alt="product_shoes"></div>
+                        <div class="product_text">branded shirts</div>
+                        <div class="product_price">
+                            <div class="product_cost">$300</div>
+                            <button type="submit" class="product_button">buy now</button>
+                        </div>
+                    </div>
+                    <!-- product_card_item -->
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer_cards">
+                    <div class="footer_card_item">
+                        <h3>featured sale</h3>
+                        <ul>
+                            <li><a href="#" target="_blank">Alexis Hudson</a></li>
+                            <li><a href="#" target="_blank">American Apparel</a></li>
+                            <li><a href="#" target="_blank">Ben Sherman</a></li>
+                            <li><a href="#" target="_blank">Big Buddha</a></li>
+                            <li><a href="#" target="_blank">Chanel</a></li>
+                            <li><a href="#" target="_blank">Christian Audigier</a></li>
+                            <li><a href="#" target="_blank">Coach</a></li>
+                            <li><a href="#" target="_blank">Cole Haan</a></li>
+                        </ul>
+                    </div>
+                    <!-- footer_card_item -->
+                    <div class="footer_card_item">
+                        <h3>MENS STORE</h3>
+                        <ul>
+                            <li><a href="#" target="_blank">Alexis Hudson</a></li>
+                            <li><a href="#" target="_blank">American Apparel</a></li>
+                            <li><a href="#" target="_blank">Ben Sherman</a></li>
+                            <li><a href="#" target="_blank">Big Buddha</a></li>
+                            <li><a href="#" target="_blank">Chanel</a></li>
+                            <li><a href="#" target="_blank">Christian Audigier</a></li>
+                            <li><a href="#" target="_blank">Coach</a></li>
+                            <li><a href="#" target="_blank">Cole Haan</a></li>
+                        </ul>
+                    </div>
+                    <!-- footer_card_item -->
+                    <div class="footer_card_item">
+                        <h3>wOMEN sTORE</h3>
+                        <ul>
+                            <li><a href="#" target="_blank">Alexis Hudson</a></li>
+                            <li><a href="#" target="_blank">American Apparel</a></li>
+                            <li><a href="#" target="_blank">Ben Sherman</a></li>
+                            <li><a href="#" target="_blank">Big Buddha</a></li>
+                            <li><a href="#" target="_blank">Chanel</a></li>
+                            <li><a href="#" target="_blank">Christian Audigier</a></li>
+                            <li><a href="#" target="_blank">Coach</a></li>
+                            <li><a href="#" target="_blank">Cole Haan</a></li>
+                        </ul>
+                    </div>
+                    <!-- footer_card_item -->
+                    <div class="footer_card_item">
+                        <h3>qUICK LINKS</h3>
+                        <ul>
+                            <li><a href="#" target="_blank">Alexis Hudson</a></li>
+                            <li><a href="#" target="_blank">American Apparel</a></li>
+                            <li><a href="#" target="_blank">Ben Sherman</a></li>
+                            <li><a href="#" target="_blank">Big Buddha</a></li>
+                            <li><a href="#" target="_blank">Chanel</a></li>
+                            <li><a href="#" target="_blank">Christian Audigier</a></li>
+                            <li><a href="#" target="_blank">Coach</a></li>
+                            <li><a href="#" target="_blank">Cole Haan</a></li>
+                        </ul>
+                    </div>
+                    <!-- footer_card_item -->
+                </div>
+                <!-- footer_cards -->
+            </div>
+            <div class="footer_basement"></div>
+        </footer>
+
+
+
+
+
+
+
+
+    </main>
+
+
+
+
+
+
+
+
+
 
 </body>
 
