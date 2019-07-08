@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
     <header class="header">
         <div class="container">
             <div class="nav">
@@ -26,6 +27,17 @@
                     </a>
                 </div>
                 <!-- nav__cart -->
+                <!-- <div class="hamburg"> -->
+                <input type="checkbox" id="checkbox2" class="checkbox2 visuallyHidden">
+                <label for="checkbox2">
+											<div class="hamburger hamburger2">
+													<span class="bar bar1"></span>
+													<span class="bar bar2"></span>
+													<span class="bar bar3"></span>
+													<span class="bar bar4"></span>
+											</div>
+									</label>
+                <!-- </div> -->
             </div>
             <!-- nav -->
         </div>
@@ -33,15 +45,15 @@
         <div class="top-menu">
             <div class="container">
                 <div class="nav__top-menu">
-                    <a href="#">Home</a> |
-                    <a href="#">Sale</a>|
-                    <a href="#">handbags</a>|
-                    <a href="#">wallets</a>|
-                    <a href="#">accessories</a>|
-                    <a href="#">mens store</a>|
-                    <a href="#">shoes</a>|
-                    <a href="#">vintage</a>|
-                    <a href="#">services</a>|
+                    <a href="#">Home</a>
+                    <a href="#">Sale</a>
+                    <a href="#">handbags</a>
+                    <a href="#">wallets</a>
+                    <a href="#">accessories</a>
+                    <a href="#">mens store</a>
+                    <a href="#">shoes</a>
+                    <a href="#">vintage</a>
+                    <a href="#">services</a>
                     <a href="#">contact us</a>
                 </div>
             </div>
@@ -80,37 +92,30 @@
         <!-- banner -->
         <section class="categories">
             <div class="container">
-
                 <div class="categories_card">
-                    <a class="prev" onclick="minusSlide()">&#10094;</a>
+                    <a class="prev">&#10094;</a>
                     <div class="categories_card_item">
-                        <div class="categories_card_photo">
-                            <img src="../Aditii/img/categories_card_photo_1.png" alt="bRANDED sHOES">
-                        </div>
+                        <div class="categories_card_photo photo_1"> </div>
                         <div class="categories_card_item_info">
                             <div class="categories_card_text">bRANDED sHOES</div>
                             <button class="shop_small">shop</button>
                         </div>
                     </div>
                     <div class="categories_card_item">
-                        <div class="categories_card_photo">
-                            <img src="../Aditii/img/categories_card_photo_2.png" alt="bRANDED sHOES">
-                        </div>
+                        <div class="categories_card_photo photo_2"></div>
                         <div class="categories_card_item_info">
                             <div class="categories_card_text">bRANDED tSHIRTS</div>
                             <button class="shop_small">shop</button>
                         </div>
                     </div>
                     <div class="categories_card_item">
-                        <div class="categories_card_photo">
-                            <img src="../Aditii/img/categories_card_photo.png" alt="bRANDED sHOES">
-                        </div>
+                        <div class="categories_card_photo photo_3"></div>
                         <div class="categories_card_item_info">
                             <div class="categories_card_text">bRANDED sHorts</div>
                             <button class="shop_small">shop</button>
                         </div>
                     </div>
-                    <a class="next" onclick="plusSlide()">&#10095;</a>
+                    <a class="next">&#10095;</a>
                 </div>
                 <!--categories_card  -->
             </div>
@@ -130,7 +135,7 @@
             <div class="container-50">
                 <div class="product_cards">
                     <div class="product_card_item">
-                        <div class="product_photo"><img src="../Aditii/img/product_shoes.png" alt="product_shoes"></div>
+                        <div class="product_photo photo_shoes"></div>
                         <div class="product_text">bRANDED sHOEs</div>
                         <div class="product_price">
                             <div class="product_cost">$300</div>
@@ -139,7 +144,7 @@
                     </div>
                     <!-- product_card_item -->
                     <div class="product_card_item">
-                        <div class="product_photo"><img src="../Aditii/img/product_tShots.png" alt="product_shoes"></div>
+                        <div class="product_photo photo_tShirts"></div>
                         <div class="product_text">bRANDED tEES</div>
                         <div class="product_price">
                             <div class="product_cost">$300</div>
@@ -148,7 +153,7 @@
                     </div>
                     <!-- product_card_item -->
                     <div class="product_card_item">
-                        <div class="product_photo"><img src="../Aditii/img/product_TShotsWhite.png" alt="product_shoes"></div>
+                        <div class="product_photo photo_TShirtsWhite"></div>
                         <div class="product_text">bRANDED tshits white</div>
                         <div class="product_price">
                             <div class="product_cost">$300</div>
@@ -157,7 +162,7 @@
                     </div>
                     <!-- product_card_item -->
                     <div class="product_card_item">
-                        <div class="product_photo"><img src="../Aditii/img/product_wallet.png" alt="product_shoes"></div>
+                        <div class="product_photo photo_wallet"></div>
                         <div class="product_text">branded wallet</div>
                         <div class="product_price">
                             <div class="product_cost">$300</div>
@@ -166,7 +171,7 @@
                     </div>
                     <!-- product_card_item -->
                     <div class="product_card_item">
-                        <div class="product_photo"><img src="../Aditii/img/product_bag.png" alt="product_shoes"></div>
+                        <div class="product_photo photo_bag"></div>
                         <div class="product_text">branded bag</div>
                         <div class="product_price">
                             <div class="product_cost">$300</div>
@@ -175,7 +180,7 @@
                     </div>
                     <!-- product_card_item -->
                     <div class="product_card_item">
-                        <div class="product_photo"><img src="../Aditii/img/product_shorts.png" alt="product_shoes"></div>
+                        <div class="product_photo photo_shorts"></div>
                         <div class="product_text">branded shirts</div>
                         <div class="product_price">
                             <div class="product_cost">$300</div>
@@ -252,24 +257,9 @@
             <div class="footer_basement"></div>
         </footer>
 
-
-
-
-
-
-
-
     </main>
 
-
-
-
-
-
-
-
-
-
+    <script src="../Aditii/script.js"></script>
 </body>
 
 </html>
