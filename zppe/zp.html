@@ -5,104 +5,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>zppe - Зарплата курьера ПониЭкспресс</title>
 </head>
 
 <body>
-    <form action="#" autocomplete="off" target="_self" id="layerBase">
-        <fieldset id="baseField">
-            <legend>Ввод данных</legend>
-            <p>
-                <label> Всего рабочих дней:</label>
-                <input type="number" id="allDay">
-            </p>
-            <p>
-                <label> Кол-во отработанных дней:</label>
-                <input type="number" id="currentDay">
-            </p>
-            <p>
-                <label> Выберите коэффициент:</label>
-                <label><input type="radio" name="coef" id="checkEightTenth">0.8</label>
-                <label><input type="radio" name="coef" id="checkOne"  checked>1</label>
-                <label><input type="radio" name="coef" id="checkOneSecond">1.2</label>
-            </p>
 
-            <p>
-                <label> Доставки ИМ без примерки:</label>
-                <input type="text" id="basePrice1" class="base" value="70" disabled>
-                <input type="number" id="numberImBP" class="number" min="0">
-            </p>
-
-            <p>
-                <label>Доставки ИМ c примеркой:</label>
-                <input type="text" id="basePrice2" class="base" value="90" disabled>
-                <input type="number" id="numberImP" class="number" min="0">
-            </p>
-            <p>
-                <label> Доставка почты(B2B):</label>
-                <input type="text" id="basePrice3" class="base" value="47" disabled>
-                <input type="number" id="B2B" class="number" s min="0">
-            </p>
-
-            <p>
-                <label>Заказы:</label>
-                <input type="text" id="basePrice4" class="base" value="47" disabled>
-                <input type="number" id="orders" class="number" min="0">
-            </p>
-
-        </fieldset>
-        <!-- -----------------------КНОПКИ------------------------------------------------------------- -->
-        <div id="buttonList">
-            <input type="reset" value="Сброс всех полей">
-            <input type="button" id="calc" value="Рассчитать ЗП"></input>
-            <input type="button" id="back" value="Рассчитать другого курьера"></input>
-
+    <header class="header">
+        <div class="container">
+            <div class="header-wrap">
+                <div id="nav__logo"> </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav__link">Главная</a>
+                    <a href="zp.html" class="nav__link">Рассчитать зарплату</a>
+                    <a href="oil.html" class="nav__link">Рассчитать бензин</a>
+                </nav>
+                <a href="#" class="login">Войти</a>
+            </div>
         </div>
-        <!-- ------------------------------------------------------- -->
-        <!-- -----------------------------------ИТОГИ-------------------------------------- -->
-        <fieldset id="finishSet">
-            <legend>Итоги:</legend>
+    </header>
+    <main>
+        <div class="container">
+            <form action="#" autocomplete="off" target="_self" id="layerBase">
+                <fieldset id="baseField">
+                    <legend>Ввод данных</legend>
+                    <p>
+                        <label> Всего рабочих дней:</label>
+                        <input type="number" id="allDay">
+                    </p>
+                    <p>
+                        <label> Кол-во отработанных дней:</label>
+                        <input type="number" id="currentDay">
+                    </p>
+                    <p>
+                        <label> Выберите коэффициент:</label>
+                        <label><input type="radio" name="coef" id="checkEightTenth">0.8</label>
+                        <label><input type="radio" name="coef" id="checkOne"  checked>1</label>
+                        <label><input type="radio" name="coef" id="checkOneSecond">1.2</label>
+                    </p>
 
-            <p id="namePerson">
-                Курьер :
-            </p>
-            <p id="numberPerson">
-                Табельный номер:
-            </p>
-            <p>
-                <label> Оклад/день:</label>
-                <input type="text" id="priceDay" disabled>
-            </p>
-            <p>
-                <label> Оклад/месяц: </label>
-                <input type="text" id="oklad" disabled>
-            </p>
-            <p>
-                <label> Премия 50% от оклада: </label>
-                <input type="text" id="premiya" disabled>
-            </p>
-            <p>
-                <label>Аренда авто: </label>
-                <input type="text" id="rentCar" disabled>
-            </p>
-            <p>
-                <label>Всего начислено: </label>
-                <input type="text" id="allZp" disabled>
-            </p>
-            <p>
-                13 %:
-                <input type="text" name="thirteenPercents" id="thirteenPercents" disabled>
-            </p>
-            <p>
-                Сумма к выплате(-13%):
-                <input type="text" name="result" id="result" disabled>
-            </p>
+                    <p>
+                        <label> Доставки ИМ без примерки:</label>
+                        <input type="text" id="basePrice1" class="base" value="70" disabled>
+                        <input type="number" id="numberImBP" class="number" min="0">
+                    </p>
 
-        </fieldset>
-        <!-- ---------------------------------------------------------------- -->
-    </form>
+                    <p>
+                        <label>Доставки ИМ c примеркой:</label>
+                        <input type="text" id="basePrice2" class="base" value="90" disabled>
+                        <input type="number" id="numberImP" class="number" min="0">
+                    </p>
+                    <p>
+                        <label> Доставка почты(B2B):</label>
+                        <input type="text" id="basePrice3" class="base" value="47" disabled>
+                        <input type="number" id="B2B" class="number" s min="0">
+                    </p>
 
+                    <p>
+                        <label>Заказы:</label>
+                        <input type="text" id="basePrice4" class="base" value="47" disabled>
+                        <input type="number" id="orders" class="number" min="0">
+                    </p>
+
+                </fieldset>
+                <!-- -----------------------КНОПКИ------------------------------------------------------------- -->
+                <div id="buttonList">
+                    <input type="reset" value="Сброс всех полей">
+                    <input type="button" id="calc" value="Рассчитать ЗП"></input>
+                </div>
+                <!-- ------------------------------------------------------- -->
+                <!-- -----------------------------------ИТОГИ-------------------------------------- -->
+                <fieldset id="finishSet">
+                    <legend>Итоги:</legend>
+
+                    <p id="namePerson">
+                        Курьер :
+                    </p>
+                    <p id="numberPerson">
+                        Табельный номер:
+                    </p>
+                    <p>
+                        <label> Оклад/день:</label>
+                        <input type="text" id="priceDay" disabled>
+                    </p>
+                    <p>
+                        <label> Оклад/месяц: </label>
+                        <input type="text" id="oklad" disabled>
+                    </p>
+                    <p>
+                        <label> Премия 50% от оклада: </label>
+                        <input type="text" id="premiya" disabled>
+                    </p>
+                    <p>
+                        <label>Аренда авто: </label>
+                        <input type="text" id="rentCar" disabled>
+                    </p>
+                    <p>
+                        <label>Всего начислено: </label>
+                        <input type="text" id="allZp" disabled>
+                    </p>
+                    <p>
+                        13 %:
+                        <input type="text" name="thirteenPercents" id="thirteenPercents" disabled>
+                    </p>
+                    <p>
+                        Сумма к выплате(-13%):
+                        <input type="text" name="result" id="result" disabled>
+                    </p>
+
+                </fieldset>
+                <!-- ---------------------------------------------------------------- -->
+            </form>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer_developer">
+                <h4>@Произведено сотрудником компании PONY EXPRESS,УОК ВОСТОК</h4>
+                <p>2019</p>
+            </div>
+        </div>
+
+    </footer>
+    <script src="getPerson.js"></script>
     <script src="script.js"></script>
 </body>
 

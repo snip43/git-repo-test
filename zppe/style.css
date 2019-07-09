@@ -4,7 +4,8 @@
         box-sizing: border-box;
     }
     
-    body {
+    body,
+    html {
         font-family: 'Roboto', sans-serif;
         background-color: #fff;
     }
@@ -36,6 +37,8 @@
     .nav {
         display: flex;
         flex-direction: row;
+        justify-content: center;
+        align-items: center;
         flex-basis: 50%;
     }
     
@@ -43,10 +46,12 @@
         margin-right: 20px;
         text-decoration: none;
         color: dimgray;
+        text-align: center;
         transition: .3s linear;
     }
     
-    .nav__link:hover {
+    .nav__link:hover,
+    .nav__link:active {
         box-shadow: 0 0 0 2px white, 0 0 0 4px green;
     }
     
@@ -145,6 +150,23 @@
         height: 25px;
     }
     
+    .footer {
+        background-color: #f4f4f4;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    
+    .footer_developer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+        font-style: italic;
+        color: dimgray;
+        font-size: .6em;
+    }
+    
     @media screen and (max-width: 740px) {
         .header-wrap {
             padding-top: 5px;
@@ -160,5 +182,34 @@
         .nav__link {
             margin-bottom: 5px;
             margin-right: 0;
+        }
+    }
+    
+    .container {
+        max-width: 60%;
+        margin: auto;
+    }
+    
+    .welcome_top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: 100px;
+        color: green;
+        font-size: 1em;
+    }
+    
+    .welcome_top h1 {
+        font-size: 2em;
+    }
+    
+    .welcome_top p {
+        margin-top: 50px;
+    }
+    
+    @media screen and (max-width: 1200px) {
+        .nav__link {
+            margin-bottom: 5px;
         }
     }
