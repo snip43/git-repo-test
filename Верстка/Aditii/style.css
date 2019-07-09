@@ -524,6 +524,12 @@ body {
         width: 200px;
         height: 200px;
     }
+    .footer_card_item h3 {
+        font-size: .9em;
+    }
+    .footer_card_item a {
+        font-size: .7em;
+    }
 }
 
 @media screen and (max-width:680px) {
@@ -564,5 +570,18 @@ body {
     }
     .footer_card_item a {
         font-size: .6em;
+    }
+    .signature {
+        font-size: 1em;
+    }
+    .product_cards {
+        justify-content: center;
+    }
+    .product_card_item {
+        width: 60%;
+        /* height: 260px; */
+    }
+    .product_card_item:not(:last-child) {
+        margin-bottom: 47px;
     }
 }
