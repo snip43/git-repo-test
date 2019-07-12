@@ -22,10 +22,10 @@ const radioBtnEightTen = document.querySelector('#checkEightTenth'),
     calcZP = document.querySelector('#calc'),
     inputPriceDay = document.querySelector('#priceDay'),
     inputAllDay = document.querySelector('#allDay'),
-    inputCurrentDay = document.querySelector('#currentDay'),
+    inputCurrentDay = document.querySelector('#currentDay');
 
-    dataNameInput = document.querySelector('#data-name-input'),
-    dataNumberInput = document.querySelector('#data-number-input');
+// dataNameInput = document.querySelector('#data-name-input'),
+// dataNumberInput = document.querySelector('#data-number-input');
 
 let arrOne = [70, 90, 47, 47];
 
