@@ -1,3 +1,5 @@
+let gamer = 'X';
+
 function createTable(x, y) {
     let table = document.createElement('table');
     for (let i = 1; i <= x; i++) {
@@ -8,6 +10,7 @@ function createTable(x, y) {
             td.style.width = '50px';
             td.style.height = '50px';
             td.style.textAlign = 'center';
+            td.classList.add('cell');
             tr.appendChild(td);
         }
         table.appendChild(tr);
@@ -17,37 +20,79 @@ function createTable(x, y) {
 }
 
 function clickTable() {
-    let table = document.querySelector('table');
-    table.addEventListener('click', function() {
-        let target = event.target;
-        if (target.tagName == 'TD') {
-            let text = setNumber(1);
-            target.innerHTML = text;
-            text = setNumber(2);
-            if (text == 2) {
-                target.innerHTML = text;
-                text = setNumber(1);
-                console.log('text2:' + text);
-            } else if (target.tagName == 'TD' && text == 1) {
-                target.innerHTML = text;
-                text = setNumber(2);
-                console.log('text3:' + text);
+    let table = document.querySelector('table'),
+        cells = table.querySelectorAll('.cell');
+
+    cells.forEach(function(elem) {
+        elem.addEventListener('click', function use() {
+            elem.innerHTML = gamer;
+            this.removeEventListener('click', use);
+            let winner = getWinner(cells);
+            if (winner !== false) {
+                alert('СТОП ИГРА! Выйграл: ' + gamer);
+                elem.removeEventListener('click', use);
             }
-        }
+            gamer = getNextGamer(gamer);
+        });
     });
+
+    // table.addEventListener('click', function use(event) {
+    //     let target = event.target;
+
+    //     if (target.tagName == 'TD') {
+    //         target.innerHTML = gamer;
+    //         target.removeEventListener('click', use);
+    // 				getWinner(cells);
+
+    //         if (getWinner(cells) != false) {
+    //             alert('СТОП ИГРА! Выйграл: ' + gamer);
+    //             this.removeEventListener('click', use);
+    //         }
+    //         gamer = getNextGamer(gamer);
+    //     }
+    // });
 }
 
-function changeNumber() {
-
+function getNextGamer() {
+    if (gamer == 'X') {
+        return '0';
+    } else {
+        return 'X';
+    }
 }
 
-function setNumber(x) {
-    return x;
+function getWinner(cells) {
+    let winCombinations = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+
+        [0, 4, 8],
+        [2, 4, 6],
+    ];
+
+
+    for (let i = 0; i < winCombinations.length; i++) {
+        let comb = winCombinations[i];
+
+        if (cells[comb[0]].innerHTML == cells[comb[1]].innerHTML &&
+            cells[comb[0]].innerHTML == cells[comb[2]].innerHTML &&
+            cells[comb[0]].innerHTML != '') {
+            return cells[comb[0].innerHTML];
+        }
+    }
+    return false;
 }
 
+function stopGame(param, func) {
+    param.forEach(function(elem) {
+        elem.removeEventListener('click', func);
+    })
 
-
-
-
+}
 
 createTable(3, 3);
