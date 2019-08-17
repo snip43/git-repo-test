@@ -77,19 +77,11 @@ export default class App extends Component {
     return (
       <ErrorBoundry>
         <div className="stardb-app">
+					
           <Header />
-
-          <PersonList>
-            { ({name}) => <span>{name}</span> }
-          </PersonList>
-
-          <StarshipList>
-            { ({name}) => <span>{name}</span> }
-          </StarshipList>
-
-          <PlanetList>
-            { ({name}) => <span>{name}</span> }
-          </PlanetList>
+          <PersonList />
+          <StarshipList />
+          <PlanetList />
 
         </div>
       </ErrorBoundry>
