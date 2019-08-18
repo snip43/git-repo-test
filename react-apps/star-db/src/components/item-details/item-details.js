@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import ErrorButton from '../error-button/error-button';
-import SwapiService from '../../services/swapi-service';
 
 import './item-details.css';
 
@@ -20,8 +19,6 @@ export {
 
 export default class ItemDetails extends Component {
 
-  swapiService = new SwapiService();
-
   state = {
     item: null,
     image: null
@@ -38,7 +35,7 @@ export default class ItemDetails extends Component {
   }
 
   updateItem() {
-    const { itemId, getData } = this.props;
+    const { itemId, getData, getImageUrl } = this.props;
     if (!itemId) {
       return;
     }
@@ -47,6 +44,7 @@ export default class ItemDetails extends Component {
       .then((item) => {
         this.setState({
           item,
+          image: getImageUrl(item)
         });
       });
   }
@@ -58,7 +56,7 @@ export default class ItemDetails extends Component {
       return <span>Select a item from a list</span>;
     }
 
-    const {name} = item;
+    const { name } = item;
 
     return (
       <div className="item-details card">
