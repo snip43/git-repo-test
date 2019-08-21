@@ -23,3 +23,4 @@ export default class PlanetPage extends Component {
 			);
 	}
 }
+
