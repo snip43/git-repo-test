@@ -8,14 +8,24 @@ import './app.css'
 
 export default class App extends Component {
 
+	state= {
+		text:2
+	}
+
+	
+
 
 	render(){
+
+	const {text} = this.state;
+
 		return (
 			<div className= 'container w-70 mt-5 app border border-primary'>
 				<Row 
 				left = { 
 					<div className ='col'>
-						<AddItemForm />
+						<AddItemForm 
+							value={text}/>
 						<ListItem />
 					</div>  }
 				right = { <Maps /> }
