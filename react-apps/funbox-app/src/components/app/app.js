@@ -1,32 +1,26 @@
 import React, { Component } from 'react';
 
-import AddItemForm from '../add-item-form/add-item-form';
+import Input from '../input/input';
 import Row from '../row/row';
-import ListItem from '../list-item/list-item';
+import List from '../list/list';
 import Maps from '../maps/maps';
 import './app.css'
 
 export default class App extends Component {
 
-	state= {
-		text:2
-	}
+state = {
+	label : ['Drink Coffee', 'Create React App' ]
+}
 
-	
-
-
-	render(){
-
-	const {text} = this.state;
+render(){
 
 		return (
 			<div className= 'container w-70 mt-5 app border border-primary'>
 				<Row 
 				left = { 
 					<div className ='col'>
-						<AddItemForm 
-							value={text}/>
-						<ListItem />
+						<Input /> 
+						<List todos = { this.state.label } />
 					</div>  }
 				right = { <Maps /> }
 				/>
