@@ -1,98 +1,68 @@
-let gamer = 'X';
+// 8f42e052-d447-4449-976a-1f7e03ad7c41
+const buttonGo = document.querySelector('#button');
+buttonGo.addEventListener('keyDown', downKey );
 
-function createTable(x, y) {
-    let table = document.createElement('table');
-    for (let i = 1; i <= x; i++) {
-        let tr = document.createElement('tr');
-        for (let j = 1; j <= y; j++) {
-            let td = document.createElement('td');
-            td.style.border = '1px solid black';
-            td.style.width = '50px';
-            td.style.height = '50px';
-            td.style.textAlign = 'center';
-            td.classList.add('cell');
-            tr.appendChild(td);
-        }
-        table.appendChild(tr);
+const places = [];
+const placemarks = [
+	{
+		latitude: 55.76,
+		longitude:37.64
+	}
+];
+
+ymaps.ready(init);
+
+function init(){ 
+	
+	// Создание карты.    
+	myMap = new ymaps.Map("map", {
+		center: [55.76, 37.64],
+		zoom: 11,
+		controls: ['zoomControl']
+	});
+
+	ymaps.route([
+    'Кронштадт, Якорная площадь',
+    {
+        type: 'viaPoint',
+        point: [{
+					
+				}]// или 'Аничков мост'
+    },
+    'Санкт-Петербург, Финляндский вокзал'// или [59.956084, 30.356849]
+]).then(
+    function (route) {
+        myMap.geoObjects.add(route);
+    },
+    function (error) {
+        alert("Возникла ошибка: " + error.message);
     }
-    document.body.appendChild(table);
-    clickTable();
+);
 }
 
-function clickTable() {
-    let table = document.querySelector('table'),
-        cells = table.querySelectorAll('.cell');
 
-    cells.forEach(function(elem) {
-        elem.addEventListener('click', function use() {
-            elem.innerHTML = gamer;
-            this.removeEventListener('click', use);
-            let winner = getWinner(cells);
-            if (winner !== false) {
-                alert('СТОП ИГРА! Выйграл: ' + gamer);
-                elem.removeEventListener('click', use);
-            }
-            gamer = getNextGamer(gamer);
-        });
-    });
-
-    // table.addEventListener('click', function use(event) {
-    //     let target = event.target;
-
-    //     if (target.tagName == 'TD') {
-    //         target.innerHTML = gamer;
-    //         target.removeEventListener('click', use);
-    // 				getWinner(cells);
-
-    //         if (getWinner(cells) != false) {
-    //             alert('СТОП ИГРА! Выйграл: ' + gamer);
-    //             this.removeEventListener('click', use);
-    //         }
-    //         gamer = getNextGamer(gamer);
-    //     }
-    // });
-}
-
-function getNextGamer() {
-    if (gamer == 'X') {
-        return '0';
-    } else {
-        return 'X';
-    }
-}
-
-function getWinner(cells) {
-    let winCombinations = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-
-        [0, 4, 8],
-        [2, 4, 6],
-    ];
+function downKey(event){
+	// res.geoObjects.get(0).geometry.getCoordinates()
+	if(event.keyCode===13){
+		let target = event.target;
+		value =	target.value;
+		ymaps.geocode(value)
+		.then((res)=> {
+			placemarks.push(
+				{
+					latitude: res.geoObjects.get(0).geometry.getCoordinates()[0],
+					longitude: res.geoObjects.get(0).geometry.getCoordinates()[1]
+				}
+			)		
+		}
+		)
+		.then(()=> target.value ='');
+		}
+	}
 
 
-    for (let i = 0; i < winCombinations.length; i++) {
-        let comb = winCombinations[i];
 
-        if (cells[comb[0]].innerHTML == cells[comb[1]].innerHTML &&
-            cells[comb[0]].innerHTML == cells[comb[2]].innerHTML &&
-            cells[comb[0]].innerHTML != '') {
-            return cells[comb[0].innerHTML];
-        }
-    }
-    return false;
-}
 
-function stopGame(param, func) {
-    param.forEach(function(elem) {
-        elem.removeEventListener('click', func);
-    })
 
-}
 
-createTable(3, 3);
+
