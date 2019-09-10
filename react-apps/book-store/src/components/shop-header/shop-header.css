@@ -1,0 +1,15 @@
+.logo {
+    font-family: 'Cabin Sketch', cursive;
+    color: rgb(179, 166, 66);
+    font-size: 2.5rem;
+}
+
+.shopping-cart {
+    color: rgb(179, 166, 66);
+    font-size: 1.5rem;
+    font-family: 'Cabin Sketch', cursive;
+}
+
+.cart-icon {
+    margin-right: 0.6rem;
+}
