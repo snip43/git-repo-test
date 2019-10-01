@@ -8,7 +8,8 @@ import './app.css'
 export default class App extends Component {
 
 state = {
-	data : []
+	data : [],
+	
 }
 
 deleteItem = (id) => {
@@ -26,25 +27,39 @@ deleteItem = (id) => {
 	})
 }
 
-addItem = (event) =>{
+addItem = (event) => {
 	const target = event.target;
-	let newItemLabel = '';
+	let newItemLabel ='';
+
 	if(event.keyCode === 13) {
 		event.preventDefault();
+		
 		newItemLabel = target.value;
-		this.setState( ({data})=>{
+		target.value = '';
+
+		this.setState(({data}) => {
+		
 			const newData = [
 				...data,
 				newItemLabel
 			];
 
+			newData.map((item) => {
+				fetch(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=8f42e052-d447-4449-976a-1f7e03ad7c41&geocode=${item}`)
+					.then(res => console.log('res:', res.geoObjects.get(0)))
+					.catch(err => console.log('error: ', err))
+			})
+
 			return {
 				data: newData
 			}
 		})
-		target.value = '';
-	}
-}
+	
+	
+		}
+				// data: res.geoObjects.get(0).geometry.getCoordinates() }))
+		}
+
 
 	render(){
 		const { data } = this.state;

@@ -4,10 +4,6 @@ import './list-item.css';
 
 export default class ListItem extends Component {
 
-onCloseClick = () => {
-	console.log(`${this.props.label}`);
-}
-
 	render(){
 		const { label, onDeleted } = this.props;
 		return ( 
