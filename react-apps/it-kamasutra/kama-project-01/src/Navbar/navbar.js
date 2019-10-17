@@ -1,15 +1,20 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 
 import './navbar.css';
 
 
 const Navbar = () => {
 return (
-	<div className="navbar bg-info list-group pl-3 d-flex justify-content-start col-3">
-			<a href="ya.ru" className='list-group-item list-group-item-action'>Profile</a>
-			<a href="ya.ru" className='list-group-item list-group-item-action'>Messages</a>
-			<a href="ya.ru" className='list-group-item list-group-item-action'>News</a>
-			<a href="ya.ru" className='list-group-item list-group-item-action'>Music</a>
+	<div className="bg-info col-3 mr-3">
+		<div className='btn-group-vertical w-100 my-3'>
+				<NavLink to="/profile" className='btn btn-outline-light'>Profile</NavLink>
+				<NavLink to="/dialogs" className='btn btn-outline-light'>Dialogs</NavLink>
+				<NavLink to="/news" className='btn btn-outline-light'>News</NavLink>
+				<NavLink to="/music" className='btn btn-outline-light'>Music</NavLink>
+				<NavLink to="/settings" className='btn btn-outline-secondary  mt-5'>Settings</NavLink>
+		</div>
+
 		</div>
 )
 }
