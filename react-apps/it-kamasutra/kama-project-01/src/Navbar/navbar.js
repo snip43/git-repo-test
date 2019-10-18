@@ -5,6 +5,7 @@ import './navbar.css';
 
 
 const Navbar = () => {
+
 return (
 	<div className="bg-info col-3 mr-3">
 		<div className='btn-group-vertical w-100 my-3'>

@@ -7,11 +7,15 @@ import Footer from '../Footer/footer';
 import './app.css';
 
 
-const  App = () => {
+const  App = ({dataDialog,dataMessage,dataPosts}) => {
 return (
   <div className="App"> 
 		<Header />
-		<Main />
+		<Main 
+		dataDia = {dataDialog}
+		dataMes={dataMessage}
+		dataPos={dataPosts}
+		/>
 		<Footer />
 	</div>
   );

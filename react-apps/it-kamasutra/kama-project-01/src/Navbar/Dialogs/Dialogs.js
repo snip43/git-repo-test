@@ -1,29 +1,14 @@
 import React from 'react';
 
-import DialogItem from '../Dialog-item';
-import Message from '../Message/';
+import DialogItem from './Dialog-item';
+import Message from './Message/';
 
 import './Dialogs.css';
 
-const Dialogs = () => {
+const Dialogs = ({diaDa,mesDa}) => {
 
-	let dialogData = [
-		{name:'Яна', id:'yana'},
-		{name:'Мама', id:'mom'},
-		{name:'Папа', id:'dady'},
-		{name:'Мелочь', id:'sister'},
-		{name:'Димон', id:'dimon'}
-	];
-
-
-	let messageData = [
-		{id:1, message: 'Жду! Борщ готов!'},
-		{id:2, message: 'Привет,сынуля! Работаешь?'},
-		{id:3, message: 'У меня отпуск в октябре,хочу приехать!'},
-	];
-
-	let newDialog = dialogData.map( d => <DialogItem name={d.name} id={d.id} /> );
-	let newMessage = messageData.map( m => <Message message={m.message} id={m.id} />);
+	let newDialog = diaDa.map( (d,index) => <DialogItem name={d.name} id={d.id} key={index}/> );
+	let newMessage = mesDa.map( (m,index) => <Message message={m.message} id={m.id} key={index} />);
 
 
 	return (

@@ -3,33 +3,38 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 
 import './main.css';
-import Navbar from '../Navbar';
-import Profile from '../Profile';
-import Dialogs from '../Dialogs/';
-import News from '../News/';
-import Music from '../Music/';
-import Settings from '../Settings/';
+import Navbar from '../Navbar/';
+import Profile from './Profile';
+import Dialogs from '../Navbar/Dialogs/';
+import News from '../Navbar/News/';
+import Music from '../Navbar/Music/';
+import Settings from '../Navbar/Settings/';
 
 
-const Main = () => {
+const Main = ({dataDia,dataMes,dataPos}) => {
+
+	
 	return (
 			<Router>
 				<div className='container d-flex my-3 main'>
 					<Navbar />
 					<Route 
-						component ={Dialogs}
+						render ={ () => (
+						<Dialogs 
+						diaDa ={dataDia} 
+						mesDa = {dataMes} />)}
 						path='/dialogs'/>
 					<Route 
-						component ={Profile}
+						render ={ () => <Profile posDa={dataPos}/>}
 						path='/profile'/>
 					<Route 
-						component ={News}
+						render ={ () => <News />}
 						path='/news'/>
 					<Route 
-						component ={Music}
+						render ={ () => <Music />}
 						path='/music'/>
 					<Route 
-						component ={Settings}
+						render ={ () => <Settings />}
 						path='/settings'/>
 					
 				</div>

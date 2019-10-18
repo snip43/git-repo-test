@@ -1,19 +1,15 @@
 import React from 'react';
 
-import Post from '../Post'
+import Post from './Post'
 
-const AllPosts = () => {
+const AllPosts = ({postsAll}) => {
 
-	let postsData = [
-		{id:1, value:'Первое',likeCount:20},
-		{id:2, value:'Двадцать пятое', likeCount:1}
-	];
-
-	let newPost = postsData.map( p => (
+	let newPost = postsAll.map( (p,index) => (
 		<Post 
 			value={p.value} 
 			likeCount ={p.likeCount} 
-			id={p.id} />	
+			id={p.id} 
+			key={index}/>	
 	));
 	
 	return (
