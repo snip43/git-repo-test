@@ -1,5 +1,5 @@
 import React from 'react';
-// import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
+
 import DialogItem from '../Dialog-item';
 import Message from '../Message/';
 
