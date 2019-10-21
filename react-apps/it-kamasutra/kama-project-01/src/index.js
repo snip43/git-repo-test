@@ -3,8 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './component/App';
 import state from './redux/state';
-
+import {addPost} from './redux/state';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 ReactDOM.render(
-		<App state={state} />, document.getElementById('root'));
+
+	<Router >
+			<App state={state} 
+			addPost ={addPost} />
+	</Router>	, document.getElementById('root'));
 
