@@ -23,7 +23,8 @@ const Main = (props) => {
 						<Route 
 								render ={ () => <Profile 
 								state = {props.state.profilePage}
-								addPost={props.addPost}/>}
+								addPost={props.addPost} 
+								updatePostText={props.updatePostText}/>}
 								path='/profile'/>
 						<Route 
 								render ={ () => <News />}

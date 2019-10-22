@@ -1,7 +1,5 @@
 import React from 'react';
 
-import NewMessage from '../Message/NewMessage';
-
 import './Message.css';
 
 const Message = ({message}) => {

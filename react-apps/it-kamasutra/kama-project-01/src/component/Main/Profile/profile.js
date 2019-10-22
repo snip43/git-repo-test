@@ -10,7 +10,10 @@ const Profile = (props) => {
 			<div className='ml-3 px-0'>
 					<div className='profile__img'></div>
 					<ProfileInfo />
-					<NewPost addPost={props.addPost}/>
+					<NewPost 
+						addPost={props.addPost}
+						newPostText = {props.state.newPostText} 
+						updatePostText={props.updatePostText}/>
 					<AllPosts postsData = {props.state.postsData} 
 						/>
 			</div>

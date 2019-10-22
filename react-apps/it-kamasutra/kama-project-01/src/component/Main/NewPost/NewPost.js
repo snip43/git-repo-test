@@ -10,6 +10,12 @@ const NewPost = (props) => {
 
 		let text = newElementPost.current.value;
 		props.addPost(text);
+		props.updatePostText('');
+	}
+
+	let updateNewPostText = () => {
+		let updateText = newElementPost.current.value;
+		props.updatePostText(updateText);
 	}
 
 	return (
@@ -19,8 +25,11 @@ const NewPost = (props) => {
 								<textarea 
 								className='posts__area w-100' 
 								placeholder='Введите новое сообщение...'
-								ref={newElementPost}>
-								</textarea>
+								
+								ref={newElementPost} 
+								value ={props.newPostText} 
+								onChange = {updateNewPostText}/>
+							
 								<button 
 									type='button' 
 									className=" post__new-button btn btn-success ml-3"
