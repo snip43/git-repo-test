@@ -20,7 +20,8 @@ let state = {
 			{id:1, message: 'Жду! Борщ готов!'},
 			{id:2, message: 'Привет,сынуля! Работаешь?'},
 			{id:3, message: 'У меня отпуск в октябре,хочу приехать!'},
-		]
+		],
+		newMessageText: ''
 	
 	},
 	navbarPage: {
@@ -52,7 +53,23 @@ export let addPost = () => {
 export let updatePostText = (newText) => {
 	state.profilePage.newPostText = newText;
 	rerenderTree(state);
+}
 
+export let addMessage = () => {
+
+	let newMessage = {
+	id:4,
+	value: state.dialogsPage.newMessageText,
+};
+state.dialogsPage.messageData.push(newMessage);
+
+rerenderTree(state);
+
+}
+
+export let updateMessageText = (newMessage) => {
+	state.dialogsPage.messageData = newMessage;
+	rerenderTree(state);
 }
 
 export default state;

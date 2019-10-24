@@ -1,12 +1,16 @@
 import React from 'react';
 
-const NewMessage = () => {
+const NewMessage = (props) => {
 
 	let newMessageRef = React.createRef();
 
 	let addNewMessage = () => {
 		let text = newMessageRef.current.value;
 		alert(text);
+	}
+	let getNewMessage = () => {
+		let text = newMessageRef.current.value;
+		props.updateMessageText(text);
 	}
 
 return (
@@ -16,7 +20,8 @@ return (
 								<textarea 
 								className='posts__area w-100' 
 								placeholder='Введите новое сообщение...'
-								ref ={newMessageRef}>
+								ref ={newMessageRef} 
+								onChange={getNewMessage}>
 								</textarea>
 								<button 
 									type='button' 

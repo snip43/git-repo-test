@@ -14,7 +14,9 @@ return (
 		<Main 
 			state={props.state}
 			addPost={props.addPost}	
-			updatePostText={props.updatePostText}/>
+			updatePostText={props.updatePostText}
+			addMessage={props.addMessage}
+			updateMessageText= {props.updateMessageText}/>
 		<Footer />
 	</div>
   );

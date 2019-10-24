@@ -18,23 +18,27 @@ const Main = (props) => {
 					<Navbar state = { props.state.navbarPage }/>
 					<div className='content'>
 						<Route 
-								render ={ () => ( <Dialogs state={ props.state.dialogsPage}	 />)}
-								path='/dialogs'/>
+								render ={ () => ( <Dialogs 
+																		state={ props.state.dialogsPage}
+																		addMessage={props.addMessage}
+																		updateMessageText={props.updateMessageText}	 />)}
+																		path='/dialogs'/>
 						<Route 
 								render ={ () => <Profile 
-								state = {props.state.profilePage}
-								addPost={props.addPost} 
-								updatePostText={props.updatePostText}/>}
+																		state = {props.state.profilePage}
+																		addPost={props.addPost} 
+																		updatePostText={props.updatePostText} 
+								/>}
 								path='/profile'/>
 						<Route 
 								render ={ () => <News />}
-								path='/news'/>
+																		path='/news'/>
 						<Route 
 								render ={ () => <Music />}
-								path='/music'/>
+																		path='/music'/>
 						<Route 
 								render ={ () => <Settings />}
-								path='/settings'/>
+																		path='/settings'/>
 					</div>
 					
 				</div>

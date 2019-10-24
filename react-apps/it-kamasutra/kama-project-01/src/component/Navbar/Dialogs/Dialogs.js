@@ -20,7 +20,9 @@ const Dialogs = (props) => {
 
 			<div className="messages-list col-9">
 				{getNewMessage}
-				<NewMessage />
+				<NewMessage  
+						updateMessageText={props.updateMessageText} 
+						addMessage={props.addMessage}/>
 			</div>
 		
 		</div>
