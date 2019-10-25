@@ -13,10 +13,7 @@ return (
 		<Header />
 		<Main 
 			state={props.state}
-			addPost={props.addPost}	
-			updatePostText={props.updatePostText}
-			addMessage={props.addMessage}
-			updateMessageText= {props.updateMessageText}/>
+			dispatch={props.dispatch}	/>
 		<Footer />
 	</div>
   );

@@ -1,19 +1,18 @@
 import React from 'react';
-
+import './NewMessage.css';
+import {aCreatorAddMessage,aCreatorUpdateMessageText} from '../../../../../redux/state'
 
 const NewMessage = (props) => {
 
 	let newMessageRef = React.createRef();
 
 	let addMessageText = () => {
-
-		let text = newMessageRef.current.value;
-		props.addMessage(text);
-		props.updateMessageText('');
+		props.dispatch(aCreatorAddMessage());
 	}
-	let updateNewMessageText = () => {
-		let updateText = newMessageRef.current.value;
-		props.updateMessageText(updateText);
+
+	let updateNewMessageText = (event) => {
+		let text = event.target.value ;
+		props.dispatch(aCreatorUpdateMessageText(text));
 	}
 
 return (
@@ -21,15 +20,16 @@ return (
 						<h5>Новое сообщение:</h5>
 							<div className='d-flex justify-content-between w-100 align-items-center'>
 								<textarea 
-								className='posts__area w-100' 
-								placeholder='Введите новое сообщение...'
-								ref ={newMessageRef} 
-								onChange={updateNewMessageText}>
+										className='posts__area w-100' 
+										placeholder='Введите новое сообщение...'
+										ref ={newMessageRef} 
+										value ={props.newMessageText} 
+										onChange={updateNewMessageText}>
 								</textarea>
 								<button 
-									type='button' 
-									className=" post__new-button btn btn-success ml-3"
-									onClick={addMessageText}>									
+										type='button' 
+										className=" post__new-button btn btn-success ml-3"
+										onClick={addMessageText}>									
 									Отправить</button>
 							</div>
 					</div>

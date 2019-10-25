@@ -1,21 +1,17 @@
 import React from 'react';
+import {aCreatorAddPost,aCreatorUpdatePostText} from '../../../redux/state';
 
 import './NewPost.css';
 
 const NewPost = (props) => {
 	
-	let newElementPost = React.createRef();
-
 	let addPost = () => {
-
-		let text = newElementPost.current.value;
-		props.addPost(text);
-		props.updatePostText('');
+		props.dispatch(aCreatorAddPost());
 	}
 
-	let updateNewPostText = () => {
-		let updateText = newElementPost.current.value;
-		props.updatePostText(updateText);
+	let updateNewPostText = (e) => {
+		let text = e.target.value;
+		props.dispatch(aCreatorUpdatePostText(text));
 	}
 
 	return (
@@ -25,8 +21,6 @@ const NewPost = (props) => {
 								<textarea 
 								className='posts__area w-100' 
 								placeholder='Введите новое сообщение...'
-								
-								ref={newElementPost} 
 								value ={props.newPostText} 
 								onChange = {updateNewPostText}/>
 							

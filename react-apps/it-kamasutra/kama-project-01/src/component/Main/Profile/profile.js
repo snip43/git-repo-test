@@ -11,9 +11,9 @@ const Profile = (props) => {
 					<div className='profile__img'></div>
 					<ProfileInfo />
 					<NewPost 
-						addPost={props.addPost}
-						newPostText = {props.state.newPostText} 
-						updatePostText={props.updatePostText}/>
+							dispatch = {props.dispatch}
+							newPostText = {props.state.newPostText} 
+						/>
 					<AllPosts postsData = {props.state.postsData} 
 						/>
 			</div>
