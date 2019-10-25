@@ -1,16 +1,19 @@
 import React from 'react';
 
+
 const NewMessage = (props) => {
 
 	let newMessageRef = React.createRef();
 
-	let addNewMessage = () => {
+	let addMessageText = () => {
+
 		let text = newMessageRef.current.value;
-		alert(text);
+		props.addMessage(text);
+		props.updateMessageText('');
 	}
-	let getNewMessage = () => {
-		let text = newMessageRef.current.value;
-		props.updateMessageText(text);
+	let updateNewMessageText = () => {
+		let updateText = newMessageRef.current.value;
+		props.updateMessageText(updateText);
 	}
 
 return (
@@ -21,12 +24,12 @@ return (
 								className='posts__area w-100' 
 								placeholder='Введите новое сообщение...'
 								ref ={newMessageRef} 
-								onChange={getNewMessage}>
+								onChange={updateNewMessageText}>
 								</textarea>
 								<button 
 									type='button' 
 									className=" post__new-button btn btn-success ml-3"
-									onClick={addNewMessage}>									
+									onClick={addMessageText}>									
 									Отправить</button>
 							</div>
 					</div>
