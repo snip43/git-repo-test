@@ -1,8 +1,7 @@
-const aTypeAddPost = 'ADD-POST';
-const aTypeUpdatePostText = 'UPDATE-POST-TEXT';
-const aTypeAddMessage = 'ADD-MESSAGE';
-const aTypeUpdateMessageText = 'UPDATE-MESSAGE-TEXT';
 
+import profileReducer from './profile-reducer';
+import dialogsReducer from './dialogs-reducer';
+import navbarReducer from './navbar-reducer';
 
 let store =  {
 	
@@ -44,7 +43,6 @@ let store =  {
 		console.log('state изменился!');
 	},
 
-
 	getState() {
 		return this._state;
 	},
@@ -53,47 +51,14 @@ let store =  {
 	},
 
 	dispatch(action) {
-		if(action.type === aTypeAddPost) {
-			let newPost = {
-				id:3,
-				value: this._state.profilePage.newPostText,
-				likeCount: 0
-			};
-			this._state.profilePage.postsData.push(newPost);
-			this._rerenderTree(this._state);
-
-			
-
-		}
+		profileReducer(this._state.profilePage, action);
+		dialogsReducer(this._state.dialogsPage, action);
+		navbarReducer(this._state.navbarPage, action);
 		
-		else if(action.type === aTypeUpdatePostText) {
-				this._state.profilePage.newPostText = action.newText;
-				this._rerenderTree(this._state);
-				
-		} 
-		
-		else if (action.type === aTypeAddMessage) {
-				let newMessage = {
-					id:4,
-					message: this._state.dialogsPage.newMessageText,
-				};
-				this._state.dialogsPage.messageData.push(newMessage);
-				this._rerenderTree(this._state);
-				
+		this._rerenderTree(this._state);
 		}
-		
-		else if (action.type === aTypeUpdateMessageText) {
-				this._state.dialogsPage.newMessageText = action.newMessage;
-				this._rerenderTree(this._state);
-		}
-	}
+	
 }
-
-export const aCreatorAddPost = () => ({ type: aTypeAddPost });
-export const aCreatorUpdatePostText = (text) => ({ type: aTypeUpdatePostText, newText: text });
-export const aCreatorAddMessage = () => ({ type: aTypeAddMessage });
-export const aCreatorUpdateMessageText = (text) => ({ type: aTypeUpdateMessageText, newMessage: text });
-
 
 export default store;
 window.store = store;

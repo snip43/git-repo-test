@@ -6,7 +6,7 @@ import App from './component/App';
 
 import './index.css';
 
-import store from './redux/state';
+import store from './redux/redux-store';
 
 let rerenderTree = (state) => {
 	
@@ -20,7 +20,10 @@ let rerenderTree = (state) => {
 
 rerenderTree(store.getState());
 
-store.subscribe(rerenderTree);
+store.subscribe(() => {
+	let state = store.getState();
+	rerenderTree(state);
+}); 
 
 
 

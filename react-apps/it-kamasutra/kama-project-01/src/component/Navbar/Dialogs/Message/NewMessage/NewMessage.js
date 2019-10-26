@@ -1,6 +1,6 @@
 import React from 'react';
 import './NewMessage.css';
-import {aCreatorAddMessage,aCreatorUpdateMessageText} from '../../../../../redux/state'
+import {aCreatorAddMessage,aCreatorUpdateMessageText} from '../../../../../redux/dialogs-reducer'
 
 const NewMessage = (props) => {
 
