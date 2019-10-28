@@ -1,17 +1,17 @@
 import React from 'react';
-import {aCreatorAddPost,aCreatorUpdatePostText} from '../../../redux/profile-reducer';
+
 
 import './NewPost.css';
 
 const NewPost = (props) => {
 	
 	let addPost = () => {
-		props.dispatch(aCreatorAddPost());
+		props.addPost();
 	}
 
 	let updateNewPostText = (e) => {
 		let text = e.target.value;
-		props.dispatch(aCreatorUpdatePostText(text));
+		props.updateNewPostText(text);
 	}
 
 	return (
