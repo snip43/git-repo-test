@@ -4,15 +4,16 @@ import DialogItem from './Dialog-item';
 import Message from './Message/';
 
 import './Dialogs.css';
-import NewMessage from './Message/NewMessage';
+import NewMessageContainer from './Message/NewMessageContainer';
 
 const Dialogs = (props) => { 
+	let state = props.store.getState();
 	
-	let newDialog = props.state.dialogData.map( (d,index) => 
+	let newDialog = state.dialogsPage.dialogData.map( (d,index) => 
 					<DialogItem	name={d.name} 
 											id={d.id} 
 											key={index}/> );
-	let getNewMessage = props.state.messageData.map( (m,index) => 
+	let getNewMessage = state.dialogsPage.messageData.map( (m,index) => 
 					<Message 
 											message={m.message} 
 											id={m.id} 
@@ -28,9 +29,7 @@ const Dialogs = (props) => {
 			<div className="messages-list col-9">
 				{getNewMessage}
 				
-				<NewMessage  
-				newMessageText ={props.state.newMessageText}
-				dispatch={props.dispatch} />
+				<NewMessageContainer store={props.store}  />
 			</div>
 		
 		</div>

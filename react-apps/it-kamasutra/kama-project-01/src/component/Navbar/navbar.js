@@ -7,6 +7,8 @@ import './navbar.css';
 
 
 const Navbar = (props) => {
+	
+let state = props.store.getState();
 
 return (
 	<div className="sidebar bg-info col-3 mr-3 ">
@@ -18,7 +20,7 @@ return (
 				<NavLink to="/settings" className='btn btn-outline-secondary  mt-5'>Settings</NavLink>
 		</div>
 
-		<div className='navbar__friends mt-5'><Friends state ={props.state.friendsData} /> </div>
+		<div className='navbar__friends mt-5'><Friends state ={state.navbarPage.friendsData} /> </div>
 
 	</div>
 )

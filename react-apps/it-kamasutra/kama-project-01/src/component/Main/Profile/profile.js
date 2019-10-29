@@ -11,10 +11,10 @@ const Profile = (props) => {
 			<div className='ml-3 px-0'>
 					<div className='profile__img'></div>
 					<ProfileInfo />
-					<NewPostContainer state={props.state} 
-													dispatch = {props.dispatch}/>
-					<AllPosts postsData = {props.state.postsData} 
-						/>
+					<NewPostContainer store={props.store} 
+														/>
+					<AllPosts 
+										store={props.store}		/>
 			</div>
 	);
 }

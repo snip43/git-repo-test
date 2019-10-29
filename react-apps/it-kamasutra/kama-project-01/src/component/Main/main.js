@@ -12,20 +12,20 @@ import Settings from '../Navbar/Settings/';
 
 
 const Main = (props) => {
+
 	return (
-			
+		
 				<div className='container d-flex my-3 main'>
-					<Navbar state = { props.state.navbarPage }/>
+				
+					<Navbar store = { props.store }/>
 					<div className='content'>
 						<Route 
-								render ={ () => ( <Dialogs 
-																		state={props.state.dialogsPage}
-																		dispatch = {props.dispatch}  />)}
+								render ={ () =>  <Dialogs 
+																		store = {props.store}  />}
 																		path='/dialogs'/>
 						<Route 
 								render ={ () => <Profile 
-																			state = {props.state.profilePage}
-																			dispatch={props.dispatch} />}
+																			store={props.store} />}
 																			path='/profile'/>
 						<Route 
 								render ={ () => <News />}

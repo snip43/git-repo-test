@@ -1,18 +1,15 @@
 import React from 'react';
 import './NewMessage.css';
-import {aCreatorAddMessage,aCreatorUpdateMessageText} from '../../../../../redux/dialogs-reducer'
 
 const NewMessage = (props) => {
 
-	let newMessageRef = React.createRef();
-
 	let addMessageText = () => {
-		props.dispatch(aCreatorAddMessage());
+		props.addMessageText();
 	}
 
 	let updateNewMessageText = (event) => {
 		let text = event.target.value ;
-		props.dispatch(aCreatorUpdateMessageText(text));
+		props.updateNewMessageText(text);
 	}
 
 return (
@@ -22,7 +19,6 @@ return (
 								<textarea 
 										className='posts__area w-100' 
 										placeholder='Введите новое сообщение...'
-										ref ={newMessageRef} 
 										value ={props.newMessageText} 
 										onChange={updateNewMessageText}>
 								</textarea>
