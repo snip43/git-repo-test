@@ -5,7 +5,7 @@ import NavbarFriend from './navbar_friend';
 
 const Friends = (props) => {
 
-	let newFriend = props.state.map( (f,index)=>  index<3 ? 	<NavbarFriend name={f.name}	avatar={f.avatar}	key={index} /> : null);
+	let newFriend = props.friendsData.map( (f,index)=>  index<3 ? 	<NavbarFriend name={f.name}	avatar={f.avatar}	key={index} /> : null);
 
 	return (
 

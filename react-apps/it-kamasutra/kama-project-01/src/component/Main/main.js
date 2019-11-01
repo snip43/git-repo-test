@@ -17,16 +17,15 @@ const Main = (props) => {
 		
 				<div className='container d-flex my-3 main'>
 				
-					<Navbar store = { props.store }/>
+					<Navbar />
 					<div className='content'>
 						<Route 
 								render ={ () =>  <Dialogs 
 																		store = {props.store}  />}
 																		path='/dialogs'/>
 						<Route 
-								render ={ () => <Profile 
-																			store={props.store} />}
-																			path='/profile'/>
+								render ={ () => <Profile />} 
+																		path='/profile'/>
 						<Route 
 								render ={ () => <News />}
 																		path='/news'/>

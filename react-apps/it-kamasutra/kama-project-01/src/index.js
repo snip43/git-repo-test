@@ -9,7 +9,7 @@ import {Provider} from 'react-redux';
 
 
 
-let rerenderTree = (state) => {
+let rerenderTree = () => {
 	
 	ReactDOM.render(
 		<Router >
@@ -20,11 +20,10 @@ let rerenderTree = (state) => {
 		</Router>	, document.getElementById('root'));
 }
 
-rerenderTree(store.getState());
+rerenderTree();
 
 store.subscribe(() => {
-	let state = store.getState();
-	rerenderTree(state);
+	rerenderTree();
 }); 
 
 

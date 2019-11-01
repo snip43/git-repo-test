@@ -1,20 +1,18 @@
 import React from 'react'
 
 import './profile.css';
-import AllPosts from '../AllPosts';
+import AllPostsContainer from '../AllPostsContainer';
 import NewPostContainer from '../NewPostContainer';
 import ProfileInfo from './ProfileInfo/';
 
-const Profile = (props) => {
-	
+const Profile = () => {
+
 	return (
 			<div className='ml-3 px-0'>
 					<div className='profile__img'></div>
 					<ProfileInfo />
-					<NewPostContainer store={props.store} 
-														/>
-					<AllPosts 
-										store={props.store}		/>
+					<NewPostContainer />
+					<AllPostsContainer />
 			</div>
 	);
 }

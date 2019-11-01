@@ -4,12 +4,10 @@ import {NavLink} from 'react-router-dom';
 import Friends from './Friends/'
 
 import './navbar.css';
+import store from '../../redux/redux-store';
 
 
-const Navbar = (props) => {
-	
-let state = props.store.getState();
-
+const Navbar = () => {
 return (
 	<div className="sidebar bg-info col-3 mr-3 ">
 		<div className='btn-group-vertical w-100 my-3 sidebar_link'>
@@ -20,7 +18,7 @@ return (
 				<NavLink to="/settings" className='btn btn-outline-secondary  mt-5'>Settings</NavLink>
 		</div>
 
-		<div className='navbar__friends mt-5'><Friends state ={state.navbarPage.friendsData} /> </div>
+		<div className='navbar__friends mt-5'><Friends friendsData ={store.getState().navbarPage.friendsData} /> </div>
 
 	</div>
 )

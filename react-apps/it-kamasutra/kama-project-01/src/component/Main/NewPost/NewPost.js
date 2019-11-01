@@ -4,7 +4,7 @@ import React from 'react';
 import './NewPost.css';
 
 const NewPost = (props) => {
-	
+	 debugger;
 	let addPost = () => {
 		props.addPost();
 	}

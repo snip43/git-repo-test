@@ -3,9 +3,8 @@ import React from 'react';
 import Post from './Post'
 
 const AllPosts = (props) => {
-let state = props.store.getState();
 
-	let newPost = state.profilePage.postsData.map( (p,index) => (
+	let newPost = props.postsData.map( (p,index) => (
 		<Post 
 			value={p.value} 
 			likeCount ={p.likeCount} 

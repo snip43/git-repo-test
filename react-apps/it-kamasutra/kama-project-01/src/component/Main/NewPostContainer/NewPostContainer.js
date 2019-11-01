@@ -10,7 +10,7 @@ import {aCreatorAddPost,aCreatorUpdatePostText} from '../../../redux/profile-red
 	}
 
 	let mapDispatchToProps = (dispatch)=> {
-		console.log(dispatch);
+	
 		return {
 			addPost: () => {
 				dispatch(aCreatorAddPost());
