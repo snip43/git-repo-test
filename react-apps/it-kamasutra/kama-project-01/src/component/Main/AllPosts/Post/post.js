@@ -3,6 +3,7 @@ import React from 'react';
 import './post.css'
 
 const Post = (props) => {
+	
 	return (
 	<div className='post_1 border border-dark p-2 my-2 rounded w-100 text-left'>
 		<img 

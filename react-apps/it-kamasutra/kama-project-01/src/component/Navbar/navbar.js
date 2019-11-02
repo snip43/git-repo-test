@@ -15,10 +15,13 @@ return (
 				<NavLink to="/dialogs" className='btn btn-outline-light'>Dialogs</NavLink>
 				<NavLink to="/news" className='btn btn-outline-light'>News</NavLink>
 				<NavLink to="/music" className='btn btn-outline-light'>Music</NavLink>
-				<NavLink to="/settings" className='btn btn-outline-secondary  mt-5'>Settings</NavLink>
+				<NavLink to='/findusers' className='btn btn-outline-light mt-5'>FindUsers </NavLink>
+				<NavLink to="/settings" className='btn btn-outline-secondary mt-5'>Settings</NavLink>
 		</div>
 
 		<div className='navbar__friends mt-5'><Friends friendsData ={store.getState().navbarPage.friendsData} /> </div>
+
+		
 
 	</div>
 )

@@ -1,17 +1,16 @@
 import React from 'react';
 
-
 import './NewPost.css';
 
-const NewPost = (props) => {
-	 debugger;
-	let addPost = () => {
-		props.addPost();
+let NewPost = (props) => {
+	
+	const addPost = () => {
+		props.addPostOn();
 	}
 
-	let updateNewPostText = (e) => {
+	const updateNewPostText = (e) => {
 		let text = e.target.value;
-		props.updateNewPostText(text);
+		props.updateNewPostTextOn(text);
 	}
 
 	return (

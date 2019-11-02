@@ -6,11 +6,6 @@ import './index.css';
 import store from './redux/redux-store';
 import {Provider} from 'react-redux';
 
-
-
-
-let rerenderTree = () => {
-	
 	ReactDOM.render(
 		<Router >
 				<Provider store={store}>
@@ -18,13 +13,8 @@ let rerenderTree = () => {
 				</Provider>
 
 		</Router>	, document.getElementById('root'));
-}
 
-rerenderTree();
 
-store.subscribe(() => {
-	rerenderTree();
-}); 
 
 
 

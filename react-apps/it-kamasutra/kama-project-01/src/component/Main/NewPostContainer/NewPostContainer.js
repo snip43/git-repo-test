@@ -3,19 +3,17 @@ import NewPost from '../NewPost';
 import {aCreatorAddPost,aCreatorUpdatePostText} from '../../../redux/profile-reducer';
 
 	let mapStateToProps = (state) => {
-	
 		return {
 			newPostText: state.profilePage.newPostText
 		}
 	}
 
 	let mapDispatchToProps = (dispatch)=> {
-	
 		return {
-			addPost: () => {
+			addPostOn: () => {
 				dispatch(aCreatorAddPost());
 			},
-			updateNewPostText: (text) =>{
+			updateNewPostTextOn: (text) =>{
 				dispatch(aCreatorUpdatePostText(text));
 			}
 		}

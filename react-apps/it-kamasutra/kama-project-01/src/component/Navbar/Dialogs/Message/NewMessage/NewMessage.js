@@ -2,13 +2,13 @@ import React from 'react';
 import './NewMessage.css';
 
 const NewMessage = (props) => {
-
+ 
 	let addMessageText = () => {
 		props.addMessageText();
 	}
 
-	let updateNewMessageText = (event) => {
-		let text = event.target.value ;
+	let updateNewMessageText = (e) => {
+		let text = e.target.value ;
 		props.updateNewMessageText(text);
 	}
 

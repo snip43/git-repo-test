@@ -4,11 +4,11 @@ import { NavLink } from 'react-router-dom'
 
 import './dialog-item.css';
 
-const DialogItem = ({name,id}) => {
+const DialogItem = (props) => {
 
-	let path = `/dialogs/${id}`;
+	let path = `/dialogs/${props.id}`;
 
-	return	<NavLink to= {path} className="dialog-item list-group-item">{name}</NavLink>
+	return	<NavLink to= {path} className="dialog-item list-group-item">{props.name}</NavLink>
 	
 }
 

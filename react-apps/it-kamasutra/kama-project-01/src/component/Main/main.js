@@ -9,9 +9,10 @@ import Dialogs from '../Navbar/Dialogs/';
 import News from '../Navbar/News/';
 import Music from '../Navbar/Music/';
 import Settings from '../Navbar/Settings/';
+import FindUsers from '../FindUsers';
 
 
-const Main = (props) => {
+const Main = () => {
 
 	return (
 		
@@ -20,8 +21,7 @@ const Main = (props) => {
 					<Navbar />
 					<div className='content'>
 						<Route 
-								render ={ () =>  <Dialogs 
-																		store = {props.store}  />}
+								render ={ () =>  <Dialogs />}
 																		path='/dialogs'/>
 						<Route 
 								render ={ () => <Profile />} 
@@ -32,6 +32,9 @@ const Main = (props) => {
 						<Route 
 								render ={ () => <Music />}
 																		path='/music'/>
+						<Route 
+								render ={ () => <FindUsers />}
+																		path='/findusers'/>
 						<Route 
 								render ={ () => <Settings />}
 																		path='/settings'/>
