@@ -1,22 +1,28 @@
 import UsersContainer from '../UsersContainer';
 import {connect} from 'react-redux';
 
-import {aCreatorFollow,aCreatorUnFollow} from '../../redux/findUsers-reducer'
+import {aCreatorFollow,aCreatorUnFollow,setUsersAC} from '../../redux/findUsers-reducer'
 
 
 const mapStateToProps = (state) => {
+
 	return {
 		usersData: state.findUsersPage.usersData
 	}
 }
 const mapDispatchToProps = (dispatch) => {
+
 	return {
-		onFollow: () => {
-			dispatch(aCreatorFollow())
+		onFollow: (userId) => {
+			dispatch(aCreatorFollow(userId))
 		},
-		unFollow: () => {
-			dispatch(aCreatorUnFollow())
+		unFollow: (userId) => {
+			dispatch(aCreatorUnFollow(userId))
+		},
+		setUsers: (usersData) => {
+			dispatch(setUsersAC(usersData))
 		}
+
 	}
 }
 

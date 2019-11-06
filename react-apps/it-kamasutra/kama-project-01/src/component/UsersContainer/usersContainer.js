@@ -1,30 +1,27 @@
 import User from '../User';
-import React from 'react';
+import React,{Component} from 'react';
+import * as axios from 'axios';
+export default class UsersContainer extends Component {
 
-
-const UsersContainer = (props) => {
-
-	const onGoFollow = () => {
-		props.onFollow();
-	}
-	const onGoUnFollow = () => {
-		props.unFollow();
-	}
-
-		let userData = props.usersData.map((u,index) => (
-				<User 
-					key={index}
-					id={u.id} 
-					name={u.name}
-					avatar={u.avatar}
-					followMessage={u.followMessage}
-					country={u.country}
-					city={u.city}
-					follow={u.follow}
-					onFollow = {onGoFollow}
-					unFollow = {onGoUnFollow}/>
-		))		
-		return userData;
+componentDidMount(){
+	axios.get('https://social-network.samuraijs.com/api/1.0/users')
+	.then(response => {
+			this.props.setUsers(response.data.items)
+	})
 }
 
-export default UsersContainer;
+	render(){
+		return(
+			this.props.usersData.map( u => (
+				<User 
+					key={u.id}
+					name={u.name}
+					avatar={u.photos.small}
+					follow={u.followed}
+					onFollow = {() => this.props.onFollow(u.id)}
+					unFollow = {() => this.props.unFollow(u.id)}
+					/>
+		))		
+		)
+	}
+}

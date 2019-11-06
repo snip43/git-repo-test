@@ -1,26 +1,32 @@
 import React from 'react';
-import './user.css'
+import './user.css';
+import photoDefault from '../../assets/images/photoDefault.jpg'
+
+
 
 const User = (props) => {
 
 	return (
 		<div className='user d-flex mb-3 p-1'>
 				
-					<div className ='user_leftSide d-flex flex-column mr-3 align-items-center'>
+					<div className ='user_leftSide d-flex flex-column mr-3 align-items-center col-4'>
 								<div className='user_avatar'>
-								<img src= {props.avatar} alt={props.name}/>
-							
-							</div>
+								<img src= {props.avatar != null ? props.avatar : photoDefault} alt={props.name}/>
+								</div>
 								<p> {props.name}</p>
-								<button 
-										className='btn btn-sm btn-outline-info user_follow_btn'
-										onClick={props.onFollow}>Подписаться</button>
+								{ props.follow ? 
+									<button 
+											className='btn btn-sm btn-info user_follow_btn'
+											onClick={() => {props.unFollow() } }>Подписаться</button> :
+									<button 
+											className='btn btn-sm btn-outline-info user_unfollow_btn'
+											onClick={() => {props.onFollow()}}>Отписаться</button> }
 					</div>
 	
-					<div className="user_rightSide col-9 d-flex flex-column justify-content-center">
+					<div className="user_rightSide col-8 d-flex flex-column justify-content-center">
 						<div className="user_info_text p-2"> 
 							<p>Статус: {props.followMessage}</p>
-							<p>Я из: {props.country} , {props.city}</p>
+							<p>Я из: 'props.country' , 'props.city'</p>
 						</div>
 					</div>
 
