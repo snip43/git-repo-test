@@ -1,0 +1,19 @@
+.selectedPage {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #17A2B8;
+}
+
+.pages {
+    margin-bottom: 1.2em;
+}
+
+.page {
+    margin-right: 1.2em;
+}
+
+span:hover {
+    cursor: pointer;
+    color: #17A2B8;
+    font-weight: bold;
+}
