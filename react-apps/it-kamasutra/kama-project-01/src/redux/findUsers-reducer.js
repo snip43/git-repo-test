@@ -1,10 +1,18 @@
 const aTypeFollow = 'FOLLOW';
 const aTypeUnFollow = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+const SET_TOTAL_PEOPLE = 'SET_TOTAL_PEOPLE';
 
 
 let initinalState = {
-	usersData:[	]
+	usersData:[	],
+	pageSize: 100,
+	currentPage: 1,
+	totalPeople: 1,
+	isFetching: false,
+	totalPages: 0
 }
 
 const findUsersReducers = (state = initinalState,action) => {
@@ -29,11 +37,30 @@ const findUsersReducers = (state = initinalState,action) => {
 						return u;
 					})
 			}
+
 			case SET_USERS: {
 				return {
-					...state, usersData: [...state.usersData, ...action.usersData]
+					...state, usersData: [...action.usersData]
 				}
 			}
+
+			case SET_CURRENT_PAGE: {
+				return {
+					...state, currentPage: action.currentPage
+				}
+			}
+
+			case TOGGLE_IS_FETCHING: {
+				return {
+					...state, totalPages: action.totalPages
+				}
+			}
+			case SET_TOTAL_PEOPLE: {
+				return {
+					...state, totalPeople: action.totalPeople
+				}
+			}
+
 		default:
 			return state;
 		
@@ -43,35 +70,8 @@ const findUsersReducers = (state = initinalState,action) => {
 export const aCreatorFollow = (userId) => ({ type: aTypeFollow, userId });
 export const aCreatorUnFollow = (userId) => ({ type: aTypeUnFollow, userId });
 export const setUsersAC = (usersData) => ({ type: SET_USERS,usersData });
+export const setCurrentPageAC = (page) => ({ type: SET_CURRENT_PAGE,currentPage:page });
+export const toggleIsFetchingAC = (isFetching) => ({ type: TOGGLE_IS_FETCHING,isFetching });
+export const setTotalPeopleAC = (totalPeople) => ({ type: SET_TOTAL_PEOPLE,totalPeople });
 
 export default findUsersReducers;
-
-
-
-		// {
-		// 	id:1, 
-		// 	avatar: 'https://i.ytimg.com/vi/CD6wLmLTbSk/sddefault.jpg',
-		// 	name:'Хрюндик',
-		// 	follow: true,
-		// 	followMessage: 'go for me',
-		// 	country: 'Russia',
-		// 	city: 'Kirov'
-		// },
-		// {
-		// 	id:2, 
-		// 	avatar:'https://avatars.mds.yandex.net/get-pdb/1627222/754a4257-a39f-4c56-8a04-ec365d79a2a6/s1200?webp=false',
-		// 	name:'Кукушка',
-		// 	follow: true,
-		// 	followMessage: 'хочу новых знакомств',
-		// 	country: 'Russia',
-		// 	city: 'Moscow'
-		// },
-		// {
-		// 	id:3, 
-		// 	avatar:'https://img2.goodfon.ru/original/1920x1372/6/61/sochi-olimpiada-2014-zima.jpg',
-		// 	name:'Черепок',
-		// 	follow: false,
-		// 	followMessage: 'го на лыжи',
-		// 	country: 'Finland',
-		// 	city: 'Хельсинки'
-		// }	

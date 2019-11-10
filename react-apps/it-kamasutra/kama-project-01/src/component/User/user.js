@@ -8,7 +8,7 @@ const User = (props) => {
 
 	return (
 		<div className='user d-flex mb-3 p-1'>
-				
+		
 					<div className ='user_leftSide d-flex flex-column mr-3 align-items-center col-4'>
 								<div className='user_avatar'>
 								<img src= {props.avatar != null ? props.avatar : photoDefault} alt={props.name}/>
@@ -17,10 +17,10 @@ const User = (props) => {
 								{ props.follow ? 
 									<button 
 											className='btn btn-sm btn-info user_follow_btn'
-											onClick={() => {props.unFollow() } }>Подписаться</button> :
+											onClick={() => {props.unFollow() } }>Отписаться</button> :
 									<button 
 											className='btn btn-sm btn-outline-info user_unfollow_btn'
-											onClick={() => {props.onFollow()}}>Отписаться</button> }
+											onClick={() => {props.onFollow()}}>Подписаться</button> }
 					</div>
 	
 					<div className="user_rightSide col-8 d-flex flex-column justify-content-center">
