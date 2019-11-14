@@ -1,6 +1,7 @@
 import React from 'react';
 import './user.css';
-import photoDefault from '../../assets/images/photoDefault.jpg'
+import photoDefault from '../../assets/images/photoDefault.jpg';
+import {NavLink} from 'react-router-dom';
 
 
 
@@ -10,9 +11,11 @@ const User = (props) => {
 		<div className='user d-flex mb-3 p-1'>
 		
 					<div className ='user_leftSide d-flex flex-column mr-3 align-items-center col-4'>
-								<div className='user_avatar'>
-								<img src= {props.avatar != null ? props.avatar : photoDefault} alt={props.name}/>
-								</div>
+								<NavLink to={`/profile/${props.id}`}>
+									<div className='user_avatar'>
+									<img src= {props.avatar != null ? props.avatar : photoDefault} alt={props.name}/>
+									</div>
+								</NavLink>
 								<p> {props.name}</p>
 								{ props.follow ? 
 									<button 

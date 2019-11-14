@@ -10,8 +10,8 @@ let initinalState = {
 	usersData:[	],
 	pageSize: 100,
 	currentPage: 1,
-	totalPeople: 1,
-	isFetching: false,
+	totalPeople: null,
+	isFetching: true,
 	totalPages: 0
 }
 
@@ -67,11 +67,11 @@ const findUsersReducers = (state = initinalState,action) => {
 	}
 }
 
-export const aCreatorFollow = (userId) => ({ type: aTypeFollow, userId });
-export const aCreatorUnFollow = (userId) => ({ type: aTypeUnFollow, userId });
-export const setUsersAC = (usersData) => ({ type: SET_USERS,usersData });
-export const setCurrentPageAC = (page) => ({ type: SET_CURRENT_PAGE,currentPage:page });
-export const toggleIsFetchingAC = (isFetching) => ({ type: TOGGLE_IS_FETCHING,isFetching });
-export const setTotalPeopleAC = (totalPeople) => ({ type: SET_TOTAL_PEOPLE,totalPeople });
+export const onFollow = (userId) => ({ type: aTypeFollow, userId });
+export const unFollow = (userId) => ({ type: aTypeUnFollow, userId });
+export const setUsers = (usersData) => ({ type: SET_USERS,usersData });
+export const setCurrentPage = (page) => ({ type: SET_CURRENT_PAGE,currentPage:page });
+export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING,isFetching });
+export const setTotalPeople = (totalPeople) => ({ type: SET_TOTAL_PEOPLE,totalPeople });
 
 export default findUsersReducers;

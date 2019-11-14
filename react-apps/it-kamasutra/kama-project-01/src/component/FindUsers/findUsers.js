@@ -1,7 +1,7 @@
 import UsersContainer from '../UsersContainer';
 import {connect} from 'react-redux';
 
-import {aCreatorFollow,aCreatorUnFollow,setUsersAC,setCurrentPageAC, toggleIsFetchingAC,setTotalPeopleAC} from '../../redux/findUsers-reducer'
+import {onFollow,	unFollow,	setUsers,	setCurrentPage,	toggleIsFetching,	setTotalPeople} from '../../redux/findUsers-reducer'
 
 
 const mapStateToProps = (state) => {
@@ -15,30 +15,15 @@ const mapStateToProps = (state) => {
 
 	}
 }
-const mapDispatchToProps = (dispatch) => {
-
-	return {
-		onFollow: (userId) => {
-			dispatch(aCreatorFollow(userId))
-		},
-		unFollow: (userId) => {
-			dispatch(aCreatorUnFollow(userId))
-		},
-		setUsers: (usersData) => {
-			dispatch(setUsersAC(usersData))
-		},
-		setCurrentPage: (page) => {
-			dispatch(setCurrentPageAC(page))
-		},
-		toggleIsFetching: (isFetching) => {
-			dispatch(toggleIsFetchingAC(isFetching))
-		},
-		setTotalPeople: (totalPeople) => {
-			dispatch(setTotalPeopleAC(totalPeople))
+const mapDispatchToProps =  {
+		onFollow,
+		unFollow,
+		setUsers,
+		setCurrentPage,
+		toggleIsFetching,
+		setTotalPeople
 		}
 
-	}
-}
 
 const FindUsers = connect(mapStateToProps,mapDispatchToProps)(UsersContainer);
 

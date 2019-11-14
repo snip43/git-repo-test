@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import NewPost from '../NewPost';
-import {aCreatorAddPost,aCreatorUpdatePostText} from '../../../redux/profile-reducer';
+import {addPostOn,updateNewPostTextOn} from '../../../redux/profile-reducer';
 
 	let mapStateToProps = (state) => {
 		return {
@@ -8,16 +8,11 @@ import {aCreatorAddPost,aCreatorUpdatePostText} from '../../../redux/profile-red
 		}
 	}
 
-	let mapDispatchToProps = (dispatch)=> {
-		return {
-			addPostOn: () => {
-				dispatch(aCreatorAddPost());
-			},
-			updateNewPostTextOn: (text) =>{
-				dispatch(aCreatorUpdatePostText(text));
+	let mapDispatchToProps = {
+			addPostOn,
+			updateNewPostTextOn
 			}
-		}
-	}
+
 
 	const NewPostContainer = connect(mapStateToProps, mapDispatchToProps)(NewPost);
 

@@ -1,20 +1,19 @@
-import React from 'react'
+import React, {Component} from 'react'
 
 import './profile.css';
 import AllPostsContainer from '../AllPostsContainer';
 import NewPostContainer from '../NewPostContainer';
-import ProfileInfo from './ProfileInfo/';
+import ProfileInfoContainerBox from '../../ProfileInfoContainerBox/';
 
-const Profile = () => {
-
-	return (
+export default class Profile extends Component {
+	render() {
+		return (
 			<div className='ml-3 px-0'>
 					<div className='profile__img'></div>
-					<ProfileInfo />
+					<ProfileInfoContainerBox />
 					<NewPostContainer />
 					<AllPostsContainer />
 			</div>
-	);
+		);
+	}
 }
-
-export default Profile;

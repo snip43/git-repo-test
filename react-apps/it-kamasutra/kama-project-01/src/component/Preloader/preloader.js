@@ -1,13 +1,24 @@
 import React from 'react';
 
+import './preloader.css'
 
-import image from './images/Triangles-2.4s-90px.svg'
 
 const Preloader = ()=> {
+
 	return (
+	<div className="lds-css ng-scope d-flex justify-content-center">
+		<div className="lds-pacman">
 			<div>
-				{image}
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div>
+				<div></div>
+				<div></div>
+			</div>
 		</div>
+	</div>
 	)
 }
 

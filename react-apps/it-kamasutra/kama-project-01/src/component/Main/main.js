@@ -25,7 +25,7 @@ const Main = () => {
 																		path='/dialogs'/>
 						<Route 
 								render ={ () => <Profile />} 
-																		path='/profile'/>
+																		path='/profile/:userId?'/>
 						<Route 
 								render ={ () => <News />}
 																		path='/news'/>
