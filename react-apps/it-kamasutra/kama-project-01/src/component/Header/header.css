@@ -4,5 +4,12 @@
 
 .header .header_logo {
     height: 49px;
-    background: url(https://www.mepc.ru/images/thumbnails/images/stories/pony_express_logo-162x49.jpg) center right no-repeat;
+    width: 162px;
+    background: url(https://www.mepc.ru/images/thumbnails/images/stories/pony_express_logo-162x49.jpg)no-repeat;
+}
+
+.header_logo_login {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

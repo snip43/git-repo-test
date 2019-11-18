@@ -6,10 +6,8 @@ export default class ProfileInfoContainer extends Component {
 
 componentDidMount(){
  let userId = this.props.match.params.userId;
-	debugger;
 
-
-	Axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
+ Axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
 		.then(response=>{
 			this.props.setNameNewProfile(response.data.fullName)
 			this.props.setPhotosLargeProfile(response.data.photos.large)
