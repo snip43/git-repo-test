@@ -1,8 +1,10 @@
 import React from 'react';
+import {compose} from 'redux'
+
+import withAuthRedirect from '../../../hoc/withAuthRedirect.js'
 
 import NewDialogContainer from './newDialogContainer';
 import MessageContainer from './MessageContainer';
-
 
 import './Dialogs.css';
 
@@ -18,4 +20,6 @@ const Dialogs = () => {
 	);
 }
 
-export default Dialogs;
+export default compose(
+	withAuthRedirect
+	)(Dialogs);

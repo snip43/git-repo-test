@@ -1,23 +1,14 @@
 import Auth from '../Auth'
 import React,{Component} from 'react';
-import Axios from 'axios';
 import {connect} from 'react-redux';
-import {setUserDataAC} from '../../redux/auth_login-reducer'
+	
+import {getAuthMe} from '../../redux/auth_login-reducer'
 
 
 class AuthContainer extends Component {
 
 componentDidMount(){
-		Axios.get('https://social-network.samuraijs.com/api/1.0/auth/me', {
-			withCredentials: true
-		})
-		.then(response=> {
-			if(response.data.resultCode===0) {
-				const {id,email,login} = response.data.data;
-				this.props.setUserDataAC(id,email,login)
-			}
-
-		})
+	this.props.getAuthMe();
 }
 
 	render() {
@@ -36,7 +27,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-	setUserDataAC
+	getAuthMe
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(AuthContainer)

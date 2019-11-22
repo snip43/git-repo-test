@@ -1,5 +1,6 @@
 import DialogItemContainer from './DialogItemContainer';
 import {connect} from 'react-redux';
+import {compose} from 'redux'
 
 const mapStateToProps = (state) => {
 	return {
@@ -7,6 +8,6 @@ const mapStateToProps = (state) => {
 	}
 }
 
-let NewDialogContainer = connect (mapStateToProps)(DialogItemContainer)
+let NewDialogContainer = compose(connect (mapStateToProps))(DialogItemContainer);
 
 export default NewDialogContainer;

@@ -1,26 +1,18 @@
 import User from '../User';
 import React,{Component} from 'react';
-import * as axios from 'axios';
-// import Preloader from '../Preloader'
+import {compose} from 'redux';
 
 import Pages from '../Pages';
-export default class UsersContainer extends Component {
+import withAuthRedirect from '../../hoc/withAuthRedirect';
+class UsersContainer extends Component {
 
 componentDidMount(){
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-		.then(response => {
-			this.props.setUsers(response.data.items);
-			this.props.setTotalPeople(response.data.totalCount)
-		})
+	this.props.getUsers(this.props.currentPage, this.props.pageSize);	
 }
 
 onPageChanged =(pageNumber) => {
-	
 	this.props.setCurrentPage(pageNumber);
-	axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
-	.then(response => {
-		this.props.setUsers(response.data.items)
-	})
+	this.props.getUsers(pageNumber,this.props.pageSize);
 }
 
 render(){
@@ -38,13 +30,24 @@ render(){
 									name={u.name}
 									avatar={u.photos.small}
 									follow={u.followed}
-									onFollow = {() => this.props.onFollow(u.id)}
-									unFollow = {() => this.props.unFollow(u.id)}
-									/>
-							))
-					}	
+									followingInProgress={this.props.followingInProgress}
+
+									onFollow = {() => {
+										this.props.follow(u.id);
+									}}
+
+									unFollow = {() => {
+										this.props.unfollow(u.id)
+									}}
+								/>
+					))}	
 			</div>
 						
 		)
 	}
 }
+
+
+export default compose (
+	withAuthRedirect
+)(UsersContainer);

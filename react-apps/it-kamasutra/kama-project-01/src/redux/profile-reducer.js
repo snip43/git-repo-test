@@ -1,3 +1,5 @@
+import {usersAPI} from '../api/api';
+
 const aTypeAddPost = 'ADD-POST';
 const aTypeUpdatePostText = 'UPDATE-POST-TEXT';
 const SET_PHOTOS = 'SET_PHOTOS';
@@ -106,9 +108,7 @@ const profileReducer = (state = initinalState,action) => {
 						...state.profileData, isLookingForJob: action.isLookingForJob
 					}
 				}
-
-			
-		 default:
+			default:
 				return state;
 			}
 }
@@ -120,5 +120,19 @@ export const setNameNewProfile = (fullName) => ({ type: SET_NEW_NAME_PROFILE, fu
 export const setAboutMe = (aboutMe) => ({ type: SET_ABOUT_ME, aboutMe });
 export const setIsLookingForJob = (isLookingForJob) => ({ type: SET_IS_LOOKING_FOR_JOB,isLookingForJob });
 export const setLookingForJobDescription = (description) => ({ type: SET_LOOKING_FOR_JOB_DESCRIPTION, description });
+
+
+export const profileInfo = (userId) => {
+	return (dispatch) => {
+	usersAPI.getProfileInfo(userId)	
+		.then(data=>{
+			dispatch(setNameNewProfile(data.fullName));
+			dispatch(setPhotosLargeProfile(data.photos.large));
+			dispatch(setAboutMe(data.aboutMe));
+			dispatch(setIsLookingForJob(data.lookingForAJob));
+			dispatch(setLookingForJobDescription(data.lookingForAJobDescription));
+			})
+}
+}
 
 export default profileReducer;

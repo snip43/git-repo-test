@@ -1,5 +1,6 @@
 import AllPosts from '../AllPosts/allPosts';
 import {connect} from 'react-redux';
+import {compose} from 'redux'
 
 
 const mapStateToProps =(state)=> {
@@ -10,6 +11,8 @@ const mapStateToProps =(state)=> {
 	}
 
 
-const AllPostsContainer = connect(mapStateToProps)(AllPosts);
+const AllPostsContainer = compose(
+	connect(mapStateToProps)
+	)(AllPosts);
 
 export default AllPostsContainer;

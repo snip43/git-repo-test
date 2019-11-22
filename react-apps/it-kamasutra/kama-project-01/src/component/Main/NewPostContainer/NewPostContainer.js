@@ -1,4 +1,5 @@
 import {connect} from 'react-redux';
+import {compose} from 'redux';
 import NewPost from '../NewPost';
 import {addPostOn,updateNewPostTextOn} from '../../../redux/profile-reducer';
 
@@ -14,7 +15,9 @@ import {addPostOn,updateNewPostTextOn} from '../../../redux/profile-reducer';
 			}
 
 
-	const NewPostContainer = connect(mapStateToProps, mapDispatchToProps)(NewPost);
+	const NewPostContainer = compose(
+		connect(mapStateToProps, mapDispatchToProps)
+		)(NewPost);
 
 export default NewPostContainer;
 	

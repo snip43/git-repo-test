@@ -1,5 +1,7 @@
-const GET_USER_DATA = 'GET_USER_DATA';
+import {authAPI} from '../api/api'
 
+
+const GET_USER_DATA = 'GET_USER_DATA';
 
 const initinalState = {
 	data: {
@@ -25,6 +27,18 @@ const authLoginReducer = (state = initinalState, action) => {
 			default:
 				return	state;
 	}
+}
+
+export const getAuthMe =()=> {
+return (dispatch) => {
+	authAPI.getAuthMe().then(data => {
+		if(data.resultCode===0) {
+			const {id,email,login} = data.data;
+			dispatch(setUserDataAC(id,email,login))
+		}
+
+	})
+} 
 }
 
 export const setUserDataAC = (userId,email,login) => ({type:GET_USER_DATA,data:{userId,email,login}})

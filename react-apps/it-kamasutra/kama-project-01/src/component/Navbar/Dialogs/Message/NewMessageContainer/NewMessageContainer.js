@@ -1,4 +1,5 @@
 import {connect} from 'react-redux';
+import {compose} from 'redux';
 import {aCreatorAddMessage,aCreatorUpdateMessageText} from '../../../../../redux/dialogs-reducer'
 import NewMessage from '../NewMessage';
 
@@ -18,7 +19,9 @@ import NewMessage from '../NewMessage';
 		}
 	}
 
-const NewMessageContainer = connect(mapStateToProps,mapDispatchToProps)(NewMessage);
+const NewMessageContainer = compose(
+	connect(mapStateToProps,mapDispatchToProps)
+)(NewMessage);
 
 export default NewMessageContainer;
 	

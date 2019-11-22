@@ -1,7 +1,8 @@
 import UsersContainer from '../UsersContainer';
 import {connect} from 'react-redux';
+import {compose} from 'redux'
 
-import {onFollow,	unFollow,	setUsers,	setCurrentPage,	toggleIsFetching,	setTotalPeople} from '../../redux/findUsers-reducer'
+import {follow,	unfollow,	toggleIsFetching,getUsers,setCurrentPage} from '../../redux/findUsers-reducer';
 
 
 const mapStateToProps = (state) => {
@@ -11,21 +12,24 @@ const mapStateToProps = (state) => {
 		currentPage: state.findUsersPage.currentPage,
 		pageSize: state.findUsersPage.pageSize,
 		totalPeople: state.findUsersPage.totalPeople,
-		isFetching: state.findUsersPage.isFetching
+		isFetching: state.findUsersPage.isFetching,
+		followingInProgress: state.findUsersPage.followingInProgress,
+		isAuth: state.authLogin.data.isAuth
 
 	}
 }
 const mapDispatchToProps =  {
-		onFollow,
-		unFollow,
-		setUsers,
-		setCurrentPage,
 		toggleIsFetching,
-		setTotalPeople
+		setCurrentPage,
+		getUsers,
+		follow,
+		unfollow,
 		}
 
 
-const FindUsers = connect(mapStateToProps,mapDispatchToProps)(UsersContainer);
+const FindUsers = compose (
+	connect(mapStateToProps,mapDispatchToProps)
+	)(UsersContainer);
 
 
 export default FindUsers;

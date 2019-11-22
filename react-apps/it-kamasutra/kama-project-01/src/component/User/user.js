@@ -6,7 +6,6 @@ import {NavLink} from 'react-router-dom';
 
 
 const User = (props) => {
-
 	return (
 		<div className='user d-flex mb-3 p-1'>
 		
@@ -19,9 +18,11 @@ const User = (props) => {
 								<p> {props.name}</p>
 								{ props.follow ? 
 									<button 
+											disabled = {props.followingInProgress.some(u=> u === props.id)}
 											className='btn btn-sm btn-info user_follow_btn'
 											onClick={() => {props.unFollow() } }>Отписаться</button> :
 									<button 
+											disabled={props.followingInProgress.some(u=>u===props.id)}
 											className='btn btn-sm btn-outline-info user_unfollow_btn'
 											onClick={() => {props.onFollow()}}>Подписаться</button> }
 					</div>

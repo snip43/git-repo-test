@@ -23,8 +23,9 @@ const mapDispatchToProps = {
 	setLookingForJobDescription
 }
 
-const WithRouterContainer = withRouter(ProfileInfoContainer);
-
-const ProfileInfoContainerBox  = connect(mapStateToProps,mapDispatchToProps)(WithRouterContainer);
+const ProfileInfoContainerBox  = compose(
+	connect(mapStateToProps,mapDispatchToProps),
+	withRouter
+)(ProfileInfoContainer)
 
 export default ProfileInfoContainerBox;
