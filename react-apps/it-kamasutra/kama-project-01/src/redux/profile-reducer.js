@@ -7,6 +7,8 @@ const SET_NEW_NAME_PROFILE = 'SET_NEW_NAME_PROFILE';
 const SET_ABOUT_ME = 'SET_ABOUT_ME';
 const SET_IS_LOOKING_FOR_JOB = 'SET_IS_LOOKING_FOR_JOB';
 const SET_LOOKING_FOR_JOB_DESCRIPTION = 'SET_LOOKING_FOR_JOB_DESCRIPTION';
+const SET_STATUS = 'SET_STATUS';
+const UPDATE_STATUS = 'UPDATE_STATUS';
 
 let initinalState = {
 	postsData:[
@@ -40,8 +42,10 @@ let initinalState = {
 		fullName: 'test test',
 		userId: null,
 		aboutMe: 'test',
+		status: ''
 		},
 	newPostText: '',
+
 }
 
 const profileReducer = (state = initinalState,action) => {
@@ -108,6 +112,15 @@ const profileReducer = (state = initinalState,action) => {
 						...state.profileData, isLookingForJob: action.isLookingForJob
 					}
 				}
+
+			case SET_STATUS:
+				return {
+					...state,
+					profileData: {
+						...state.profileData, status: action.status
+					}
+				}
+
 			default:
 				return state;
 			}
@@ -120,19 +133,41 @@ export const setNameNewProfile = (fullName) => ({ type: SET_NEW_NAME_PROFILE, fu
 export const setAboutMe = (aboutMe) => ({ type: SET_ABOUT_ME, aboutMe });
 export const setIsLookingForJob = (isLookingForJob) => ({ type: SET_IS_LOOKING_FOR_JOB,isLookingForJob });
 export const setLookingForJobDescription = (description) => ({ type: SET_LOOKING_FOR_JOB_DESCRIPTION, description });
+export const setStatus = (status) => ({type: SET_STATUS, status});
+export const updateStatus = (status) => ({type:UPDATE_STATUS,status})
 
 
 export const profileInfo = (userId) => {
 	return (dispatch) => {
-	usersAPI.getProfileInfo(userId)	
-		.then(data=>{
-			dispatch(setNameNewProfile(data.fullName));
-			dispatch(setPhotosLargeProfile(data.photos.large));
-			dispatch(setAboutMe(data.aboutMe));
-			dispatch(setIsLookingForJob(data.lookingForAJob));
-			dispatch(setLookingForJobDescription(data.lookingForAJobDescription));
-			})
+		usersAPI.getProfileInfo(userId)	
+			.then(data=>{
+				dispatch(setNameNewProfile(data.fullName));
+				dispatch(setPhotosLargeProfile(data.photos.large));
+				dispatch(setAboutMe(data.aboutMe));
+				dispatch(setIsLookingForJob(data.lookingForAJob));
+				dispatch(setLookingForJobDescription(data.lookingForAJobDescription));
+				})
+	}
 }
+
+export const profileStatus = (userId) => {
+	return (dispatch) => {
+		usersAPI.getStatus(userId)
+		.then(response=>{
+			dispatch(setStatus(response.data))
+		})
+	}
+}
+export const updateProfileStatus = (status) => {
+	return (dispatch) => {
+		usersAPI.updateStatus(status)
+		.then(response=>{
+			if(response.data.resultCode===0) {
+				dispatch(setStatus(status))
+			}
+			
+		})
+	}
 }
 
 export default profileReducer;

@@ -11,10 +11,9 @@ class Profile extends Component {
 	render() {
 		return (
 			<div className='ml-3 px-0'>
-					<div className='profile__img'></div>
-					<ProfileInfoContainer />
-					<NewPostContainer />
-					<AllPostsContainer />
+				<ProfileInfoContainer />
+				<NewPostContainer />
+				<AllPostsContainer />
 			</div>
 		);
 	}
