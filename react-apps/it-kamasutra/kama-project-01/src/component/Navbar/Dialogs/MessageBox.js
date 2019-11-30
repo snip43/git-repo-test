@@ -5,8 +5,7 @@ import NewMessageContainer from './Message/NewMessageContainer'
 
 const MessageBox = (props) => {
 
-
-	let getNewMessage = props.messageData.map( (m,index) => 
+let getNewMessage = props.messageData.map( (m,index) => 
 					<Message 
 											message={m.message} 
 											id={m.id} 
@@ -14,7 +13,6 @@ const MessageBox = (props) => {
 return (
 			<div className="messages-list col-9">
 						{getNewMessage}
-				
 				<NewMessageContainer />
 			</div>
  )

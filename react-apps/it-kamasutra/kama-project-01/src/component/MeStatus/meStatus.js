@@ -42,7 +42,7 @@ class MeStatus extends Component {
 			{editMode && 
 				<div>
 					<input
-					type='text' 
+						type='text' 
 						autoFocus={true} 
 						value={this.state.status}
 						onBlur={this.deactivateEditMode} 

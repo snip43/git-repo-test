@@ -5,7 +5,7 @@ import {compose} from 'redux'
 const mapStateToProps = (state) => {
 	return {
 		messageData: state.dialogsPage.messageData,
-		isAuth: state.authLogin.isAuth
+		isAuth: state.authLogin.data.isAuth
 	}
 }
 

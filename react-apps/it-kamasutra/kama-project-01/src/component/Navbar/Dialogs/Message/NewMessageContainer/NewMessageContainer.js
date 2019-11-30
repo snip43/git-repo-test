@@ -1,28 +1,24 @@
 import {connect} from 'react-redux';
 import {compose} from 'redux';
-import {aCreatorAddMessage,aCreatorUpdateMessageText} from '../../../../../redux/dialogs-reducer'
-import NewMessage from '../NewMessage';
+import {addMessageText} from '../../../../../redux/dialogs-reducer';
+import NewMessageReduxFormPage from '../../../../newMessageReduxFormPage/newMessageReduxFormPage';
 
-	const mapStateToProps = (state) => {
-		return {
-			newMessageText: state.dialogsPage.newMessageText
+const mapStateToProps = (state) => {
+	return {
+		newMessageText: state.dialogsPage.newMessageText
+	}
+}
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		addMessageText: (messageText) => {
+			dispatch(addMessageText(messageText));
 		}
 	}
-	const mapDispatchToProps = (dispatch) => {
-		return {
-			addMessageText: () => {
-				dispatch(aCreatorAddMessage());
-			},
-			updateNewMessageText: (text) => {
-					dispatch(aCreatorUpdateMessageText(text));
-			}
-		}
-	}
+}
 
 const NewMessageContainer = compose(
 	connect(mapStateToProps,mapDispatchToProps)
-)(NewMessage);
+)(NewMessageReduxFormPage);
 
 export default NewMessageContainer;
-	
-

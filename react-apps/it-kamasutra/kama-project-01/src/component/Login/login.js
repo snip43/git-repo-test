@@ -1,11 +1,15 @@
 import React from 'react';
-
-import LoginReduxForm from '../LoginForm'
+import LoginReduxForm from '../LoginReduxForm'
 
 const Login = () => {
-	return <div>
+
+let submit = values => {
+	console.log(values)
+}
+
+	return <div className='d-flex flex-column align-items-center border border-warning w-50'>
 		<h1>LOGIN</h1>
-<LoginReduxForm />
+		<LoginReduxForm onSubmit={submit}/>
 	</div>
 }
 

@@ -12,7 +12,6 @@ const Dialogs = () => {
 
 	return (
 		<div className='dialogs d-flex w-100'>
-
 				<NewDialogContainer />
 				<MessageContainer />
 

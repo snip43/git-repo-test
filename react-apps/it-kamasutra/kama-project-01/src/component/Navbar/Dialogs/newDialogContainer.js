@@ -8,6 +8,8 @@ const mapStateToProps = (state) => {
 	}
 }
 
-let NewDialogContainer = compose(connect (mapStateToProps))(DialogItemContainer);
+let NewDialogContainer = compose(
+	connect (mapStateToProps)
+	)(DialogItemContainer);
 
 export default NewDialogContainer;

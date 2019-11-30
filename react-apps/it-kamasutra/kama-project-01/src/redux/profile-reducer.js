@@ -1,7 +1,7 @@
 import {usersAPI} from '../api/api';
 
 const aTypeAddPost = 'ADD-POST';
-const aTypeUpdatePostText = 'UPDATE-POST-TEXT';
+// const aTypeUpdatePostText = 'UPDATE-POST-TEXT';
 const SET_PHOTOS = 'SET_PHOTOS';
 const SET_NEW_NAME_PROFILE = 'SET_NEW_NAME_PROFILE';
 const SET_ABOUT_ME = 'SET_ABOUT_ME';
@@ -43,32 +43,30 @@ let initinalState = {
 		userId: null,
 		aboutMe: 'test',
 		status: ''
-		},
-	newPostText: '',
+		}
+	// newPostText: '',
 
 }
 
 const profileReducer = (state = initinalState,action) => {
 	switch(action.type) {
 		case aTypeAddPost: 
-		let PostText = state.newPostText;
-			let newPost = { 
-				id:3,
-				value: PostText,
-				likeCount: 0
-			} ;
-			
-				return {
-					...state,
-					postsData: [...state.postsData,newPost],
-					newPostText: ''
-				}
-					
-		case aTypeUpdatePostText:
+		let postText = action.newPostText;
+		let newPost = { 
+			id:3,
+			value: postText,
+			likeCount: 0
+		} ;
 			return {
 				...state,
-				newPostText: action.newText
+				postsData: [...state.postsData,newPost],
 			}
+					
+		// case aTypeUpdatePostText:
+		// 	return {
+		// 		...state,
+		// 		newPostText: action.newText
+		// 	}
 
 		case SET_PHOTOS: 
 		return {
@@ -126,8 +124,8 @@ const profileReducer = (state = initinalState,action) => {
 			}
 }
 
-export const addPostOn = () => ({ type: aTypeAddPost });
-export const updateNewPostTextOn = (text) => ({ type: aTypeUpdatePostText, newText: text });
+export const addPostOnReduxForm = (newPostText) => ({ type: aTypeAddPost, newPostText });
+// export const updateNewPostTextOn = (text) => ({ type: aTypeUpdatePostText, newText: text });
 export const setPhotosLargeProfile = (large) => ({ type: SET_PHOTOS, large });
 export const setNameNewProfile = (fullName) => ({ type: SET_NEW_NAME_PROFILE, fullName });
 export const setAboutMe = (aboutMe) => ({ type: SET_ABOUT_ME, aboutMe });

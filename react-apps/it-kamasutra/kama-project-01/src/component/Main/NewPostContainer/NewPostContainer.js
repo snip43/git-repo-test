@@ -1,7 +1,9 @@
 import {connect} from 'react-redux';
 import {compose} from 'redux';
-import NewPost from '../NewPost';
-import {addPostOn,updateNewPostTextOn} from '../../../redux/profile-reducer';
+import {addPostOnReduxForm} from '../../../redux/profile-reducer';
+import NewPostReduxFormPage from '../../NewPostReduxFormPage/NewPostReduxFormPage';
+
+
 
 	let mapStateToProps = (state) => {
 		return {
@@ -10,14 +12,12 @@ import {addPostOn,updateNewPostTextOn} from '../../../redux/profile-reducer';
 	}
 
 	let mapDispatchToProps = {
-			addPostOn,
-			updateNewPostTextOn
-			}
-
+			addPostOnReduxForm
+	}
 
 	const NewPostContainer = compose(
 		connect(mapStateToProps, mapDispatchToProps)
-		)(NewPost);
+		)(NewPostReduxFormPage);
 
 export default NewPostContainer;
 	

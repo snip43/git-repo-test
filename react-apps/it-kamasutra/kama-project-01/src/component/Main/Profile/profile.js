@@ -19,5 +19,4 @@ class Profile extends Component {
 	}
 }
 
-
 export default compose(withAuthRedirect)(Profile);
