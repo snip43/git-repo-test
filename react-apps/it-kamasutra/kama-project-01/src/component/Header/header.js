@@ -1,13 +1,13 @@
 import React from 'react';
 import AuthContainer from '../AuthContainer/AuthContainer'
-import './header.css';
+import styles from './header.module.css';
 
 
 const Header = () => {
 	return (
-	<div className='header container-fluid bg-info'>
-			<div className='container header_logo_login'>
-				<div className='header_logo'></div>
+	<div className={styles.header}>
+			<div className = {styles.header_logo_login}>
+				<div className={styles.header_logo}></div>
 				<AuthContainer />
 			</div>
 	</div>

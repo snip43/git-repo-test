@@ -1,7 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom'
 
-import './main.css';
+import styles from './main.module.css';
+
 import Navbar from '../Navbar/';
 import Profile from './Profile';
 import Dialogs from '../Navbar/Dialogs/';
@@ -14,9 +15,11 @@ import Login from '../Login'
 const Main = () => {
 	return (
 		
-				<div className='container d-flex my-3 main'>
-					<Navbar /> 
-					<div className='content'>
+				<div className={styles.main}>
+					<div className={styles.navbar}>
+						<Navbar /> 
+					</div>
+					<div className={styles.content}>
 						<Route 	render ={ () =>  <Dialogs />}
 										path='/dialogs'/>
 						<Route 	render ={ () => <Profile />} 

@@ -1,13 +1,15 @@
 import React from 'react';
-import './footer.css';
+import styles from './footer.module.css';
 
 
 const Footer = () => {
 	return (
-	<div className='footer container-fluid bg-info d-flex justify-content-center align-items-center '>
+	<div className={styles.footer}>
 			Create by Kostin Roman 2019
 	</div>
 	)
 }
 
 export default Footer;
+
+// container-fluid d-flex justify-content-center align-items-center 
