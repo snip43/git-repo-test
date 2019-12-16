@@ -1,5 +1,5 @@
 import {authAPI} from '../api/api'
-
+import {stopSubmit} from 'redux-form'
 
 const GET_USER_DATA = 'GET_USER_DATA';
 
@@ -30,17 +30,37 @@ const authLoginReducer = (state = initinalState, action) => {
 }
 
 export const getAuthMe =()=> {
-return (dispatch) => {
-	authAPI.getAuthMe().then(data => {
-		if(data.resultCode===0) {
-			const {id,email,login} = data.data;
-			dispatch(setUserDataAC(id,email,login))
-		}
-
-	})
+	return (dispatch) => {
+		authAPI.getAuthMe()
+		.then(data => {
+			if(data.resultCode===0) {
+				const {id,email,login} = data.data;
+				dispatch(setUserDataAC(id,email,login,true))
+			}
+		})
+	} 
 } 
-}
 
-export const setUserDataAC = (userId,email,login) => ({type:GET_USER_DATA,data:{userId,email,login}})
+export const login = (email,password,rememberMe,isAuth) => (dispatch) => {
+		authAPI.login(email,password,rememberMe,isAuth)
+		.then(data => {
+			if(data.data.resultCode===0) {
+				dispatch(getAuthMe())
+			} else {
+				let message = data.data.messages.length > 0 ? data.data.messages[0]: 'Some Error';
+				dispatch(stopSubmit('login', {_error: message}));
+			}
+		})
+	} 
+export const logout = () => (dispatch) => {
+		authAPI.logout()
+		.then(data => {
+			if(data.data.resultCode===0) {
+				dispatch(setUserDataAC(null,null,null,false))
+			}
+		})
+	} 
+
+export const setUserDataAC = (userId,email,login,isAuth) => ({type:GET_USER_DATA,data:{userId,email,login,isAuth}})
 
 export default authLoginReducer;

@@ -15,12 +15,6 @@ let initinalState = {
 		{id:1, value:'Первое',likeCount:20},
 		{id:2, value:'Двадцать пятое', likeCount:1}
 	],
-	selfData:{
-		myPhotosLarge: 'https://i.pinimg.com/originals/14/fb/fd/14fbfd63332378ea42542d89b00253e5.jpg',
-			myBirthDay: '30.09.1987',
-			myBirthCity: 'Kirov,Kirovskaya oblast`',
-			myLiveCity: 'Moscow'
-		},
 	profileData: 
 		{
 		contacts: {
@@ -40,11 +34,10 @@ let initinalState = {
 		isLookingForJob: false,
 		lookingForJobDescription: 'test',
 		fullName: 'test test',
-		userId: null,
+		userId: 5084,
 		aboutMe: 'test',
 		status: ''
 		}
-	// newPostText: '',
 
 }
 
@@ -163,7 +156,6 @@ export const updateProfileStatus = (status) => {
 			if(response.data.resultCode===0) {
 				dispatch(setStatus(status))
 			}
-			
 		})
 	}
 }

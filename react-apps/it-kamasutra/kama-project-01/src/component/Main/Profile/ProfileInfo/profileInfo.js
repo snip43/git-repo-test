@@ -2,10 +2,11 @@ import React from 'react';
 // import Preloader from '../../../Preloader'
 
 import './profileInfo.css';
-import MeStatus from '../../../MeStatus/meStatus';
+import MeStatusWithHooks from '../../../MeStatus/meStatusWithHooks';
 
 
 const ProfileInfo = (props) => {
+	console.log(props)
 
 	// if(!props.large || !props.name) {
 	// 	return <Preloader />
@@ -28,7 +29,7 @@ const isLook = () => {
 						<div className='profile__info d-flex flex-column text-left pt-3'>
 							<h4 className='mb-1'>{props.name}</h4>
 
-							<MeStatus status={props.status} updateProfileStatus={props.updateProfileStatus}/>
+							<MeStatusWithHooks status={props.status} updateProfileStatus={props.updateProfileStatus}/>
 							
 							<p className='mt-5'><b>В поисках работы: </b>{isLook()}</p>
 							<p><b>Примечания по поиску работы: </b>{props.lookingForJobDescription}</p>

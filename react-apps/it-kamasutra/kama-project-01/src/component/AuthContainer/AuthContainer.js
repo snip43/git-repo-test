@@ -2,14 +2,10 @@ import Auth from '../Auth'
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 	
-import {getAuthMe} from '../../redux/auth_login-reducer'
+import {logout} from '../../redux/auth_login-reducer'
 
 
 class AuthContainer extends Component {
-
-componentDidMount(){
-	this.props.getAuthMe();
-}
 
 	render() {
 		return <Auth {...this.props}/>
@@ -27,7 +23,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-	getAuthMe
+	logout
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(AuthContainer)
