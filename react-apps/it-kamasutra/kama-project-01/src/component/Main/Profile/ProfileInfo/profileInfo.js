@@ -6,7 +6,6 @@ import MeStatusWithHooks from '../../../MeStatus/meStatusWithHooks';
 
 
 const ProfileInfo = (props) => {
-	console.log(props)
 
 	// if(!props.large || !props.name) {
 	// 	return <Preloader />

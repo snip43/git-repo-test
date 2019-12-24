@@ -10,10 +10,10 @@ class ProfileInfoContainer extends Component {
 
 componentDidMount(){
 	 let userId = this.props.match.params.userId;
-	 if(this.props.isAuth) {
+	 if(!userId) {
 		userId = this.props.profile.userId;
 		if(!userId) {
-			this.props.history.push('/login');
+			this.props.profile.history.push('/login');
 		} 
 	 }
 	this.props.profileInfo(userId);

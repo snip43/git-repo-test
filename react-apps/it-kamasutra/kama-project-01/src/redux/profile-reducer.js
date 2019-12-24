@@ -1,7 +1,6 @@
 import {usersAPI} from '../api/api';
 
 const aTypeAddPost = 'ADD-POST';
-// const aTypeUpdatePostText = 'UPDATE-POST-TEXT';
 const SET_PHOTOS = 'SET_PHOTOS';
 const SET_NEW_NAME_PROFILE = 'SET_NEW_NAME_PROFILE';
 const SET_ABOUT_ME = 'SET_ABOUT_ME';
@@ -44,22 +43,17 @@ let initinalState = {
 const profileReducer = (state = initinalState,action) => {
 	switch(action.type) {
 		case aTypeAddPost: 
-		let postText = action.newPostText;
-		let newPost = { 
-			id:3,
-			value: postText,
-			likeCount: 0
-		} ;
-			return {
-				...state,
-				postsData: [...state.postsData,newPost],
-			}
+			let postText = action.newPostText;
+			let newPost = { 
+				id:3,
+				value: postText,
+				likeCount: 0
+			} ;
+				return {
+					...state,
+					postsData: [...state.postsData,newPost],
+				}
 					
-		// case aTypeUpdatePostText:
-		// 	return {
-		// 		...state,
-		// 		newPostText: action.newText
-		// 	}
 
 		case SET_PHOTOS: 
 		return {
@@ -118,7 +112,6 @@ const profileReducer = (state = initinalState,action) => {
 }
 
 export const addPostOnReduxForm = (newPostText) => ({ type: aTypeAddPost, newPostText });
-// export const updateNewPostTextOn = (text) => ({ type: aTypeUpdatePostText, newText: text });
 export const setPhotosLargeProfile = (large) => ({ type: SET_PHOTOS, large });
 export const setNameNewProfile = (fullName) => ({ type: SET_NEW_NAME_PROFILE, fullName });
 export const setAboutMe = (aboutMe) => ({ type: SET_ABOUT_ME, aboutMe });
@@ -128,36 +121,25 @@ export const setStatus = (status) => ({type: SET_STATUS, status});
 export const updateStatus = (status) => ({type:UPDATE_STATUS,status})
 
 
-export const profileInfo = (userId) => {
-	return (dispatch) => {
-		usersAPI.getProfileInfo(userId)	
-			.then(data=>{
+export const profileInfo = (userId) => async(dispatch) => {
+	let data = await	usersAPI.getProfileInfo(userId)	;
 				dispatch(setNameNewProfile(data.fullName));
 				dispatch(setPhotosLargeProfile(data.photos.large));
 				dispatch(setAboutMe(data.aboutMe));
 				dispatch(setIsLookingForJob(data.lookingForAJob));
 				dispatch(setLookingForJobDescription(data.lookingForAJobDescription));
-				})
-	}
-}
+				}
 
-export const profileStatus = (userId) => {
-	return (dispatch) => {
-		usersAPI.getStatus(userId)
-		.then(response=>{
-			dispatch(setStatus(response.data))
-		})
-	}
-}
-export const updateProfileStatus = (status) => {
-	return (dispatch) => {
-		usersAPI.updateStatus(status)
-		.then(response=>{
-			if(response.data.resultCode===0) {
+export const profileStatus = (userId) => async(dispatch) => {
+	let data =	usersAPI.getStatus(userId)
+			dispatch(setStatus(data.data))
+		}
+
+export const updateProfileStatus = (status) => async(dispatch) => {
+	let data = await usersAPI.updateStatus(status);
+			if(data.data.resultCode===0) {
 				dispatch(setStatus(status))
 			}
-		})
-	}
-}
-
+		}
+		
 export default profileReducer;

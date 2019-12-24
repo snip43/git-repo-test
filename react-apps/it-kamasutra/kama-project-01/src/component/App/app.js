@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 import {compose} from 'redux'
 import {initApp} from '../../redux/app-reducer';
 import {withRouter} from 'react-router-dom'
-import Preloader from '../Preloader'
+// import Preloader from '../Preloader'
 
 import './app.css';
 
@@ -18,11 +18,10 @@ class  App extends Component {
 	}
 
 	render () {
-
 		return  <div className="App"> 
-			<Header />
-			<Main />
-			<Footer />
+				<Header />
+				<Main />
+				<Footer />
 	</div>
 	}
 } 

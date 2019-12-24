@@ -6,16 +6,15 @@ import {Redirect} from 'react-router-dom';
 
 
 
-const Login = (props) => {
+const Login = ({login,logout,isAuth}) => {
 
 const submit = formData => {
-	props.login(formData.email,formData.password,formData.rememberMe)
+	login(formData.email,formData.password,formData.rememberMe)
 }
 
-if(props.isAuth) {
+if(isAuth) {
 	return <Redirect to={'/profile'} />
 }
-
 	return <div className='d-flex flex-column align-items-center border border-warning w-50'>
 		<h1>LOGIN</h1>
 		<LoginReduxForm onSubmit={submit}/>

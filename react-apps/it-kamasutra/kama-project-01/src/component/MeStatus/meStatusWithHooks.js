@@ -1,13 +1,14 @@
 import React,{useState,useEffect} from 'react'
 
-const MeStatusWithStatus = (props) =>  {
+const MeStatusWithHook = (props) =>  {
 
 	let [editMode, setEditMode] = useState(false);
 	let [status, setStatus] = useState(props.status);
 
-	useEffect = (()=> {
+	useEffect(
+		() => {
 		setStatus(props.status);
-	} );
+	},[props.status]);
 
 	const activateEditMode = () => {
 		setEditMode(true)
@@ -20,8 +21,6 @@ const MeStatusWithStatus = (props) =>  {
 	const onChangeStatus = (e) => {
 		setStatus(e.currentTarget.value);
 	}
-
-
 
 	return (
 		<div>
@@ -45,4 +44,4 @@ const MeStatusWithStatus = (props) =>  {
 }
 
 		
-export default MeStatusWithStatus; 
+export default MeStatusWithHook; 

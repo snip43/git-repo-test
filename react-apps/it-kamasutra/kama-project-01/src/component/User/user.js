@@ -12,7 +12,7 @@ const User = (props) => {
 					<div className ='user_leftSide d-flex flex-column mr-3 align-items-center col-4'>
 								<NavLink to={`/profile/${props.id}`}>
 									<div className='user_avatar'>
-									<img src= {props.avatar != null ? props.avatar : photoDefault} alt={props.name}/>
+										<img src= {props.avatar != null ? props.avatar : photoDefault} alt={props.name}/>
 									</div>
 								</NavLink>
 								<p> {props.name}</p>

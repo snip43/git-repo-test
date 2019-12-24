@@ -21,13 +21,11 @@ const appReducer = (state = initinalState, action) => {
 
 export const initSuccess = () => ({type:SET_SUCCESS});
 
-export const initApp = () => (dispatch) => {
-	let promise = dispatch(getAuthMe());
+export const initApp = () => async(dispatch) => {
+	let promise = await dispatch(getAuthMe());
 
 	Promise.all([promise])
-	.then(()=> {
-		dispatch(initSuccess())
-	});
-}
+	await dispatch(initSuccess())
+	}
 
 export default appReducer;
