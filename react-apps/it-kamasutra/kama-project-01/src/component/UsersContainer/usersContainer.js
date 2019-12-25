@@ -2,42 +2,47 @@ import User from '../User';
 import React,{Component} from 'react';
 import {compose} from 'redux';
 
-import Pages from '../Pages';
+import Paginator from '../Paginator';
 import withAuthRedirect from '../../hoc/withAuthRedirect';
 class UsersContainer extends Component {
 
 componentDidMount(){
-	this.props.getUsers(this.props.currentPage, this.props.pageSize);	
+
+	const{currentPage,pageSize,getUsers} = this.props;
+	getUsers(currentPage, pageSize);	
 }
 
 onPageChanged =(pageNumber) => {
-	this.props.setCurrentPage(pageNumber);
-	this.props.getUsers(pageNumber,this.props.pageSize);
+	const {setCurrentPage,getUsers,pageSize} = this.props;
+	setCurrentPage(pageNumber);
+	getUsers(pageNumber,pageSize);
 }
 
 render(){
+
+	const {totalPeople,pageSize,currentPage,usersData,followingInProgress,follow,unfollow} = this.props;
 			return(
 			<div>
-					<Pages  totalPeople={this.props.totalPeople}
-									pageSize={this.props.pageSize}
-									currentPage={this.props.currentPage}
-									onPageChanged={this.onPageChanged}/>
+					<Paginator  totalPeople={totalPeople}
+										pageSize={pageSize}
+										currentPage={currentPage}
+										onPageChanged={this.onPageChanged}/>
 
-					{this.props.usersData.map( u => (
+					{usersData.map( u => (
 								<User 
 									id={u.id}
 									key={u.id}
 									name={u.name}
 									avatar={u.photos.small}
 									follow={u.followed}
-									followingInProgress={this.props.followingInProgress}
+									followingInProgress={followingInProgress}
 
 									onFollow = {() => {
-										this.props.follow(u.id);
+										follow(u.id);
 									}}
 
 									unFollow = {() => {
-										this.props.unfollow(u.id)
+										unfollow(u.id)
 									}}
 								/>
 					))}	
