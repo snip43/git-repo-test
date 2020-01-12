@@ -23,10 +23,10 @@ render(){
 	const {totalPeople,pageSize,currentPage,usersData,followingInProgress,follow,unfollow} = this.props;
 			return(
 			<div>
-					<Paginator  totalPeople={totalPeople}
-										pageSize={pageSize}
-										currentPage={currentPage}
-										onPageChanged={this.onPageChanged}/>
+					<Paginator  totalItemsCount={totalPeople}
+											pageSize={pageSize}
+											currentPage={currentPage}
+											onPageChanged={this.onPageChanged}/>
 
 					{usersData.map( u => (
 								<User 

@@ -11,9 +11,9 @@ const SET_TOTAL_PEOPLE = 'SET_TOTAL_PEOPLE';
 
 let initinalState = {
 	usersData:[	],
-	pageSize: 100,
+	pageSize: 10,
 	currentPage: 1,
-	totalPeople: null,
+	totalPeople: 0,
 	totalPages: 0,
 	isFetching: false,
 	followingInProgress: []
